@@ -25,17 +25,19 @@
         private void InitializeComponent() {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.trckBrVrt = new System.Windows.Forms.TrackBar();
-            this.picBxBk = new System.Windows.Forms.PictureBox();
-            this.trckBrHrz = new System.Windows.Forms.TrackBar();
-            this.trckBrScl = new System.Windows.Forms.TrackBar();
-            this.picBxBck = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.picBxFrt = new System.Windows.Forms.PictureBox();
+            this.picBxBck = new System.Windows.Forms.PictureBox();
+            this.picBxBk = new System.Windows.Forms.PictureBox();
+            this.trckBrScl = new System.Windows.Forms.TrackBar();
+            this.trckBrHrz = new System.Windows.Forms.TrackBar();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rdBtnFrtPicMv = new System.Windows.Forms.RadioButton();
-            this.rdBtnBckPicMv = new System.Windows.Forms.RadioButton();
-            this.rdBtnFrtPicScl = new System.Windows.Forms.RadioButton();
             this.rdBtnBckPicScl = new System.Windows.Forms.RadioButton();
+            this.rdBtnFrtPicScl = new System.Windows.Forms.RadioButton();
+            this.rdBtnBckPicMv = new System.Windows.Forms.RadioButton();
+            this.rdBtnFrtPicMv = new System.Windows.Forms.RadioButton();
+            this.trckBrVrt = new System.Windows.Forms.TrackBar();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -44,13 +46,14 @@
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trckBrVrt)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBxBk)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trckBrHrz)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trckBrScl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBxBck)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBxFrt)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBxBck)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBxBk)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trckBrScl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trckBrHrz)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trckBrVrt)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -65,6 +68,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.button1);
             this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
             this.splitContainer1.Panel2.Controls.Add(this.trckBrVrt);
             this.splitContainer1.Size = new System.Drawing.Size(1064, 859);
@@ -80,6 +84,7 @@
             // 
             // splitContainer2.Panel1
             // 
+            this.splitContainer2.Panel1.Controls.Add(this.pictureBox1);
             this.splitContainer2.Panel1.Controls.Add(this.picBxFrt);
             this.splitContainer2.Panel1.Controls.Add(this.picBxBck);
             this.splitContainer2.Panel1.Controls.Add(this.picBxBk);
@@ -92,17 +97,30 @@
             this.splitContainer2.SplitterDistance = 762;
             this.splitContainer2.TabIndex = 0;
             // 
-            // trckBrVrt
+            // pictureBox1
             // 
-            this.trckBrVrt.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.trckBrVrt.LargeChange = 1;
-            this.trckBrVrt.Location = new System.Drawing.Point(3, 3);
-            this.trckBrVrt.Maximum = 200;
-            this.trckBrVrt.Name = "trckBrVrt";
-            this.trckBrVrt.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.trckBrVrt.Size = new System.Drawing.Size(42, 853);
-            this.trckBrVrt.TabIndex = 0;
-            this.trckBrVrt.Value = 100;
+            this.pictureBox1.Location = new System.Drawing.Point(553, 92);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(182, 231);
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
+            // picBxFrt
+            // 
+            this.picBxFrt.Location = new System.Drawing.Point(283, 264);
+            this.picBxFrt.Name = "picBxFrt";
+            this.picBxFrt.Size = new System.Drawing.Size(195, 159);
+            this.picBxFrt.TabIndex = 2;
+            this.picBxFrt.TabStop = false;
+            // 
+            // picBxBck
+            // 
+            this.picBxBck.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picBxBck.Location = new System.Drawing.Point(0, 0);
+            this.picBxBck.Name = "picBxBck";
+            this.picBxBck.Size = new System.Drawing.Size(863, 762);
+            this.picBxBck.TabIndex = 1;
+            this.picBxBck.TabStop = false;
             // 
             // picBxBk
             // 
@@ -112,17 +130,6 @@
             this.picBxBk.Size = new System.Drawing.Size(863, 762);
             this.picBxBk.TabIndex = 0;
             this.picBxBk.TabStop = false;
-            // 
-            // trckBrHrz
-            // 
-            this.trckBrHrz.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.trckBrHrz.LargeChange = 1;
-            this.trckBrHrz.Location = new System.Drawing.Point(3, 3);
-            this.trckBrHrz.Maximum = 500;
-            this.trckBrHrz.Name = "trckBrHrz";
-            this.trckBrHrz.Size = new System.Drawing.Size(857, 42);
-            this.trckBrHrz.TabIndex = 0;
-            this.trckBrHrz.Value = 250;
             // 
             // trckBrScl
             // 
@@ -135,22 +142,16 @@
             this.trckBrScl.TabIndex = 1;
             this.trckBrScl.Value = 10;
             // 
-            // picBxBck
+            // trckBrHrz
             // 
-            this.picBxBck.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picBxBck.Location = new System.Drawing.Point(0, 0);
-            this.picBxBck.Name = "picBxBck";
-            this.picBxBck.Size = new System.Drawing.Size(863, 762);
-            this.picBxBck.TabIndex = 1;
-            this.picBxBck.TabStop = false;
-            // 
-            // picBxFrt
-            // 
-            this.picBxFrt.Location = new System.Drawing.Point(283, 264);
-            this.picBxFrt.Name = "picBxFrt";
-            this.picBxFrt.Size = new System.Drawing.Size(195, 159);
-            this.picBxFrt.TabIndex = 2;
-            this.picBxFrt.TabStop = false;
+            this.trckBrHrz.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.trckBrHrz.LargeChange = 1;
+            this.trckBrHrz.Location = new System.Drawing.Point(3, 3);
+            this.trckBrHrz.Maximum = 500;
+            this.trckBrHrz.Name = "trckBrHrz";
+            this.trckBrHrz.Size = new System.Drawing.Size(857, 42);
+            this.trckBrHrz.TabIndex = 0;
+            this.trckBrHrz.Value = 250;
             // 
             // groupBox1
             // 
@@ -165,15 +166,25 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
-            // rdBtnFrtPicMv
+            // rdBtnBckPicScl
             // 
-            this.rdBtnFrtPicMv.AutoSize = true;
-            this.rdBtnFrtPicMv.Location = new System.Drawing.Point(12, 17);
-            this.rdBtnFrtPicMv.Name = "rdBtnFrtPicMv";
-            this.rdBtnFrtPicMv.Size = new System.Drawing.Size(77, 16);
-            this.rdBtnFrtPicMv.TabIndex = 0;
-            this.rdBtnFrtPicMv.Text = "移動：前景";
-            this.rdBtnFrtPicMv.UseVisualStyleBackColor = true;
+            this.rdBtnBckPicScl.AutoSize = true;
+            this.rdBtnBckPicScl.Location = new System.Drawing.Point(12, 83);
+            this.rdBtnBckPicScl.Name = "rdBtnBckPicScl";
+            this.rdBtnBckPicScl.Size = new System.Drawing.Size(77, 16);
+            this.rdBtnBckPicScl.TabIndex = 3;
+            this.rdBtnBckPicScl.Text = "縮尺：背景";
+            this.rdBtnBckPicScl.UseVisualStyleBackColor = true;
+            // 
+            // rdBtnFrtPicScl
+            // 
+            this.rdBtnFrtPicScl.AutoSize = true;
+            this.rdBtnFrtPicScl.Location = new System.Drawing.Point(12, 61);
+            this.rdBtnFrtPicScl.Name = "rdBtnFrtPicScl";
+            this.rdBtnFrtPicScl.Size = new System.Drawing.Size(77, 16);
+            this.rdBtnFrtPicScl.TabIndex = 2;
+            this.rdBtnFrtPicScl.Text = "縮尺：前景";
+            this.rdBtnFrtPicScl.UseVisualStyleBackColor = true;
             // 
             // rdBtnBckPicMv
             // 
@@ -187,25 +198,37 @@
             this.rdBtnBckPicMv.Text = "移動：背景";
             this.rdBtnBckPicMv.UseVisualStyleBackColor = true;
             // 
-            // rdBtnFrtPicScl
+            // rdBtnFrtPicMv
             // 
-            this.rdBtnFrtPicScl.AutoSize = true;
-            this.rdBtnFrtPicScl.Location = new System.Drawing.Point(12, 61);
-            this.rdBtnFrtPicScl.Name = "rdBtnFrtPicScl";
-            this.rdBtnFrtPicScl.Size = new System.Drawing.Size(77, 16);
-            this.rdBtnFrtPicScl.TabIndex = 2;
-            this.rdBtnFrtPicScl.Text = "縮尺：前景";
-            this.rdBtnFrtPicScl.UseVisualStyleBackColor = true;
+            this.rdBtnFrtPicMv.AutoSize = true;
+            this.rdBtnFrtPicMv.Location = new System.Drawing.Point(12, 17);
+            this.rdBtnFrtPicMv.Name = "rdBtnFrtPicMv";
+            this.rdBtnFrtPicMv.Size = new System.Drawing.Size(77, 16);
+            this.rdBtnFrtPicMv.TabIndex = 0;
+            this.rdBtnFrtPicMv.Text = "移動：前景";
+            this.rdBtnFrtPicMv.UseVisualStyleBackColor = true;
             // 
-            // rdBtnBckPicScl
+            // trckBrVrt
             // 
-            this.rdBtnBckPicScl.AutoSize = true;
-            this.rdBtnBckPicScl.Location = new System.Drawing.Point(12, 83);
-            this.rdBtnBckPicScl.Name = "rdBtnBckPicScl";
-            this.rdBtnBckPicScl.Size = new System.Drawing.Size(77, 16);
-            this.rdBtnBckPicScl.TabIndex = 3;
-            this.rdBtnBckPicScl.Text = "縮尺：背景";
-            this.rdBtnBckPicScl.UseVisualStyleBackColor = true;
+            this.trckBrVrt.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.trckBrVrt.LargeChange = 1;
+            this.trckBrVrt.Location = new System.Drawing.Point(3, 3);
+            this.trckBrVrt.Maximum = 200;
+            this.trckBrVrt.Name = "trckBrVrt";
+            this.trckBrVrt.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.trckBrVrt.Size = new System.Drawing.Size(42, 853);
+            this.trckBrVrt.TabIndex = 0;
+            this.trckBrVrt.Value = 100;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(73, 174);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 27);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
@@ -215,6 +238,7 @@
             this.Controls.Add(this.splitContainer1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.Panel2.PerformLayout();
@@ -225,14 +249,15 @@
             this.splitContainer2.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.trckBrVrt)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBxBk)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trckBrHrz)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trckBrScl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBxBck)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBxFrt)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBxBck)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBxBk)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trckBrScl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trckBrHrz)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trckBrVrt)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -252,6 +277,8 @@
         private System.Windows.Forms.RadioButton rdBtnFrtPicScl;
         private System.Windows.Forms.RadioButton rdBtnBckPicMv;
         private System.Windows.Forms.RadioButton rdBtnFrtPicMv;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button1;
     }
 }
 
