@@ -35,6 +35,8 @@
 			this.rdBtnBckPicMv = new System.Windows.Forms.RadioButton();
 			this.rdBtnFrtPicMv = new System.Windows.Forms.RadioButton();
 			this.trckBrVrt = new System.Windows.Forms.TrackBar();
+			this.button1 = new System.Windows.Forms.Button();
+			this.label1 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
 			this.splitContainer1.Panel2.SuspendLayout();
@@ -81,6 +83,8 @@
 			// 
 			// splitContainer2.Panel1
 			// 
+			this.splitContainer2.Panel1.Controls.Add(this.label1);
+			this.splitContainer2.Panel1.Controls.Add(this.button1);
 			this.splitContainer2.Panel1.Controls.Add(this.picBxFrt);
 			this.splitContainer2.Panel1.Controls.Add(this.picBxBck);
 			// 
@@ -119,13 +123,13 @@
 			this.trckBrScl.LargeChange = 1;
 			this.trckBrScl.Location = new System.Drawing.Point(0, 62);
 			this.trckBrScl.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-			this.trckBrScl.Maximum = 90;
-			this.trckBrScl.Minimum = 10;
+			this.trckBrScl.Maximum = 1400;
+			this.trckBrScl.Minimum = 1;
 			this.trckBrScl.Name = "trckBrScl";
 			this.trckBrScl.Size = new System.Drawing.Size(1435, 50);
 			this.trckBrScl.TabIndex = 1;
-			this.trckBrScl.Value = 10;
-			this.trckBrScl.Scroll += new System.EventHandler(this.trckBrScl_Scroll);
+			this.trckBrScl.Value = 500;
+			this.trckBrScl.Scroll += new System.EventHandler(this.trckBr_Scroll);
 			// 
 			// trckBrHrz
 			// 
@@ -139,7 +143,7 @@
 			this.trckBrHrz.Size = new System.Drawing.Size(1433, 50);
 			this.trckBrHrz.TabIndex = 0;
 			this.trckBrHrz.Value = 250;
-			this.trckBrHrz.Scroll += new System.EventHandler(this.trckBrHrz_Scroll);
+			this.trckBrHrz.Scroll += new System.EventHandler(this.trckBr_Scroll);
 			// 
 			// groupBox1
 			// 
@@ -162,7 +166,7 @@
 			this.rdBtnBckPicScl.Location = new System.Drawing.Point(20, 124);
 			this.rdBtnBckPicScl.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
 			this.rdBtnBckPicScl.Name = "rdBtnBckPicScl";
-			this.rdBtnBckPicScl.Size = new System.Drawing.Size(114, 22);
+			this.rdBtnBckPicScl.Size = new System.Drawing.Size(77, 16);
 			this.rdBtnBckPicScl.TabIndex = 3;
 			this.rdBtnBckPicScl.Text = "縮尺：背景";
 			this.rdBtnBckPicScl.UseVisualStyleBackColor = true;
@@ -173,7 +177,7 @@
 			this.rdBtnFrtPicScl.Location = new System.Drawing.Point(20, 92);
 			this.rdBtnFrtPicScl.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
 			this.rdBtnFrtPicScl.Name = "rdBtnFrtPicScl";
-			this.rdBtnFrtPicScl.Size = new System.Drawing.Size(114, 22);
+			this.rdBtnFrtPicScl.Size = new System.Drawing.Size(77, 16);
 			this.rdBtnFrtPicScl.TabIndex = 2;
 			this.rdBtnFrtPicScl.Text = "縮尺：前景";
 			this.rdBtnFrtPicScl.UseVisualStyleBackColor = true;
@@ -185,7 +189,7 @@
 			this.rdBtnBckPicMv.Location = new System.Drawing.Point(20, 58);
 			this.rdBtnBckPicMv.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
 			this.rdBtnBckPicMv.Name = "rdBtnBckPicMv";
-			this.rdBtnBckPicMv.Size = new System.Drawing.Size(114, 22);
+			this.rdBtnBckPicMv.Size = new System.Drawing.Size(77, 16);
 			this.rdBtnBckPicMv.TabIndex = 1;
 			this.rdBtnBckPicMv.TabStop = true;
 			this.rdBtnBckPicMv.Text = "移動：背景";
@@ -197,7 +201,7 @@
 			this.rdBtnFrtPicMv.Location = new System.Drawing.Point(20, 26);
 			this.rdBtnFrtPicMv.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
 			this.rdBtnFrtPicMv.Name = "rdBtnFrtPicMv";
-			this.rdBtnFrtPicMv.Size = new System.Drawing.Size(114, 22);
+			this.rdBtnFrtPicMv.Size = new System.Drawing.Size(77, 16);
 			this.rdBtnFrtPicMv.TabIndex = 0;
 			this.rdBtnFrtPicMv.Text = "移動：前景";
 			this.rdBtnFrtPicMv.UseVisualStyleBackColor = true;
@@ -215,6 +219,27 @@
 			this.trckBrVrt.Size = new System.Drawing.Size(69, 1280);
 			this.trckBrVrt.TabIndex = 0;
 			this.trckBrVrt.Value = 100;
+			this.trckBrVrt.Scroll += new System.EventHandler(this.trckBr_Scroll);
+			// 
+			// button1
+			// 
+			this.button1.Location = new System.Drawing.Point(54, 4);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(75, 23);
+			this.button1.TabIndex = 3;
+			this.button1.Text = "button1";
+			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.button1_Click);
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.label1.Location = new System.Drawing.Point(171, 15);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(66, 21);
+			this.label1.TabIndex = 4;
+			this.label1.Text = "label1";
 			// 
 			// Form1
 			// 
@@ -230,6 +255,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
 			this.splitContainer1.ResumeLayout(false);
 			this.splitContainer2.Panel1.ResumeLayout(false);
+			this.splitContainer2.Panel1.PerformLayout();
 			this.splitContainer2.Panel2.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
 			this.splitContainer2.ResumeLayout(false);
@@ -258,6 +284,8 @@
         private System.Windows.Forms.RadioButton rdBtnFrtPicScl;
         private System.Windows.Forms.RadioButton rdBtnBckPicMv;
         private System.Windows.Forms.RadioButton rdBtnFrtPicMv;
+		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Label label1;
     }
 }
 
