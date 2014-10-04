@@ -25,6 +25,32 @@
         public void InitializeComponent() {
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
 			this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+			this.lblVrtBrBckV = new System.Windows.Forms.Label();
+			this.lblHrzBrBckV = new System.Windows.Forms.Label();
+			this.label17 = new System.Windows.Forms.Label();
+			this.label18 = new System.Windows.Forms.Label();
+			this.lblVrtBrBckMoveV = new System.Windows.Forms.Label();
+			this.lblHrzBrBckMoveV = new System.Windows.Forms.Label();
+			this.label13 = new System.Windows.Forms.Label();
+			this.label14 = new System.Windows.Forms.Label();
+			this.lblVrtBrFrtMoveV = new System.Windows.Forms.Label();
+			this.lblHrzBrFrtMoveV = new System.Windows.Forms.Label();
+			this.lblCanvsH = new System.Windows.Forms.Label();
+			this.lblCanvsW = new System.Windows.Forms.Label();
+			this.lblLoadImgH = new System.Windows.Forms.Label();
+			this.lblLoadImgW = new System.Windows.Forms.Label();
+			this.lblVrtBrFrtV = new System.Windows.Forms.Label();
+			this.lblHrzBrFrtV = new System.Windows.Forms.Label();
+			this.lblBckPicBxH = new System.Windows.Forms.Label();
+			this.lblBckPicBxW = new System.Windows.Forms.Label();
+			this.lblFrtPicBxH = new System.Windows.Forms.Label();
+			this.lblFrtPicBxW = new System.Windows.Forms.Label();
+			this.label12 = new System.Windows.Forms.Label();
+			this.label11 = new System.Windows.Forms.Label();
+			this.label10 = new System.Windows.Forms.Label();
+			this.label9 = new System.Windows.Forms.Label();
+			this.label8 = new System.Windows.Forms.Label();
+			this.label7 = new System.Windows.Forms.Label();
 			this.label6 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
@@ -88,6 +114,32 @@
 			// 
 			// splitContainer2.Panel1
 			// 
+			this.splitContainer2.Panel1.Controls.Add(this.lblVrtBrBckV);
+			this.splitContainer2.Panel1.Controls.Add(this.lblHrzBrBckV);
+			this.splitContainer2.Panel1.Controls.Add(this.label17);
+			this.splitContainer2.Panel1.Controls.Add(this.label18);
+			this.splitContainer2.Panel1.Controls.Add(this.lblVrtBrBckMoveV);
+			this.splitContainer2.Panel1.Controls.Add(this.lblHrzBrBckMoveV);
+			this.splitContainer2.Panel1.Controls.Add(this.label13);
+			this.splitContainer2.Panel1.Controls.Add(this.label14);
+			this.splitContainer2.Panel1.Controls.Add(this.lblVrtBrFrtMoveV);
+			this.splitContainer2.Panel1.Controls.Add(this.lblHrzBrFrtMoveV);
+			this.splitContainer2.Panel1.Controls.Add(this.lblCanvsH);
+			this.splitContainer2.Panel1.Controls.Add(this.lblCanvsW);
+			this.splitContainer2.Panel1.Controls.Add(this.lblLoadImgH);
+			this.splitContainer2.Panel1.Controls.Add(this.lblLoadImgW);
+			this.splitContainer2.Panel1.Controls.Add(this.lblVrtBrFrtV);
+			this.splitContainer2.Panel1.Controls.Add(this.lblHrzBrFrtV);
+			this.splitContainer2.Panel1.Controls.Add(this.lblBckPicBxH);
+			this.splitContainer2.Panel1.Controls.Add(this.lblBckPicBxW);
+			this.splitContainer2.Panel1.Controls.Add(this.lblFrtPicBxH);
+			this.splitContainer2.Panel1.Controls.Add(this.lblFrtPicBxW);
+			this.splitContainer2.Panel1.Controls.Add(this.label12);
+			this.splitContainer2.Panel1.Controls.Add(this.label11);
+			this.splitContainer2.Panel1.Controls.Add(this.label10);
+			this.splitContainer2.Panel1.Controls.Add(this.label9);
+			this.splitContainer2.Panel1.Controls.Add(this.label8);
+			this.splitContainer2.Panel1.Controls.Add(this.label7);
 			this.splitContainer2.Panel1.Controls.Add(this.label6);
 			this.splitContainer2.Panel1.Controls.Add(this.label5);
 			this.splitContainer2.Panel1.Controls.Add(this.label4);
@@ -107,65 +159,357 @@
 			this.splitContainer2.SplitterWidth = 6;
 			this.splitContainer2.TabIndex = 0;
 			// 
+			// lblVrtBrBckV
+			// 
+			this.lblVrtBrBckV.AutoSize = true;
+			this.lblVrtBrBckV.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.lblVrtBrBckV.Location = new System.Drawing.Point(150, 245);
+			this.lblVrtBrBckV.Name = "lblVrtBrBckV";
+			this.lblVrtBrBckV.Size = new System.Drawing.Size(78, 21);
+			this.lblVrtBrBckV.TabIndex = 35;
+			this.lblVrtBrBckV.Text = "label19";
+			// 
+			// lblHrzBrBckV
+			// 
+			this.lblHrzBrBckV.AutoSize = true;
+			this.lblHrzBrBckV.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.lblHrzBrBckV.Location = new System.Drawing.Point(150, 215);
+			this.lblHrzBrBckV.Name = "lblHrzBrBckV";
+			this.lblHrzBrBckV.Size = new System.Drawing.Size(78, 21);
+			this.lblHrzBrBckV.TabIndex = 34;
+			this.lblHrzBrBckV.Text = "label20";
+			// 
+			// label17
+			// 
+			this.label17.AutoSize = true;
+			this.label17.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+			this.label17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.label17.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.label17.Location = new System.Drawing.Point(6, 248);
+			this.label17.Name = "label17";
+			this.label17.Size = new System.Drawing.Size(138, 18);
+			this.label17.TabIndex = 33;
+			this.label17.Text = "垂直バーMax(背景)";
+			// 
+			// label18
+			// 
+			this.label18.AutoSize = true;
+			this.label18.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+			this.label18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.label18.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.label18.Location = new System.Drawing.Point(6, 218);
+			this.label18.Name = "label18";
+			this.label18.Size = new System.Drawing.Size(138, 18);
+			this.label18.TabIndex = 32;
+			this.label18.Text = "水平バーMax(背景)";
+			// 
+			// lblVrtBrBckMoveV
+			// 
+			this.lblVrtBrBckMoveV.AutoSize = true;
+			this.lblVrtBrBckMoveV.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.lblVrtBrBckMoveV.Location = new System.Drawing.Point(150, 485);
+			this.lblVrtBrBckMoveV.Name = "lblVrtBrBckMoveV";
+			this.lblVrtBrBckMoveV.Size = new System.Drawing.Size(78, 21);
+			this.lblVrtBrBckMoveV.TabIndex = 31;
+			this.lblVrtBrBckMoveV.Text = "label13";
+			// 
+			// lblHrzBrBckMoveV
+			// 
+			this.lblHrzBrBckMoveV.AutoSize = true;
+			this.lblHrzBrBckMoveV.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.lblHrzBrBckMoveV.Location = new System.Drawing.Point(150, 455);
+			this.lblHrzBrBckMoveV.Name = "lblHrzBrBckMoveV";
+			this.lblHrzBrBckMoveV.Size = new System.Drawing.Size(78, 21);
+			this.lblHrzBrBckMoveV.TabIndex = 30;
+			this.lblHrzBrBckMoveV.Text = "label14";
+			// 
+			// label13
+			// 
+			this.label13.AutoSize = true;
+			this.label13.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+			this.label13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.label13.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.label13.Location = new System.Drawing.Point(28, 488);
+			this.label13.Name = "label13";
+			this.label13.Size = new System.Drawing.Size(116, 18);
+			this.label13.TabIndex = 29;
+			this.label13.Text = "垂直移動(背景)";
+			// 
+			// label14
+			// 
+			this.label14.AutoSize = true;
+			this.label14.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+			this.label14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.label14.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.label14.Location = new System.Drawing.Point(22, 458);
+			this.label14.Name = "label14";
+			this.label14.Size = new System.Drawing.Size(122, 18);
+			this.label14.TabIndex = 28;
+			this.label14.Text = "水平移動（背景）";
+			// 
+			// lblVrtBrFrtMoveV
+			// 
+			this.lblVrtBrFrtMoveV.AutoSize = true;
+			this.lblVrtBrFrtMoveV.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.lblVrtBrFrtMoveV.Location = new System.Drawing.Point(150, 426);
+			this.lblVrtBrFrtMoveV.Name = "lblVrtBrFrtMoveV";
+			this.lblVrtBrFrtMoveV.Size = new System.Drawing.Size(78, 21);
+			this.lblVrtBrFrtMoveV.TabIndex = 27;
+			this.lblVrtBrFrtMoveV.Text = "label13";
+			// 
+			// lblHrzBrFrtMoveV
+			// 
+			this.lblHrzBrFrtMoveV.AutoSize = true;
+			this.lblHrzBrFrtMoveV.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.lblHrzBrFrtMoveV.Location = new System.Drawing.Point(150, 396);
+			this.lblHrzBrFrtMoveV.Name = "lblHrzBrFrtMoveV";
+			this.lblHrzBrFrtMoveV.Size = new System.Drawing.Size(78, 21);
+			this.lblHrzBrFrtMoveV.TabIndex = 26;
+			this.lblHrzBrFrtMoveV.Text = "label14";
+			// 
+			// lblCanvsH
+			// 
+			this.lblCanvsH.AutoSize = true;
+			this.lblCanvsH.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.lblCanvsH.Location = new System.Drawing.Point(150, 366);
+			this.lblCanvsH.Name = "lblCanvsH";
+			this.lblCanvsH.Size = new System.Drawing.Size(78, 21);
+			this.lblCanvsH.TabIndex = 25;
+			this.lblCanvsH.Text = "label15";
+			// 
+			// lblCanvsW
+			// 
+			this.lblCanvsW.AutoSize = true;
+			this.lblCanvsW.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.lblCanvsW.Location = new System.Drawing.Point(150, 336);
+			this.lblCanvsW.Name = "lblCanvsW";
+			this.lblCanvsW.Size = new System.Drawing.Size(78, 21);
+			this.lblCanvsW.TabIndex = 24;
+			this.lblCanvsW.Text = "label16";
+			// 
+			// lblLoadImgH
+			// 
+			this.lblLoadImgH.AutoSize = true;
+			this.lblLoadImgH.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.lblLoadImgH.Location = new System.Drawing.Point(150, 305);
+			this.lblLoadImgH.Name = "lblLoadImgH";
+			this.lblLoadImgH.Size = new System.Drawing.Size(78, 21);
+			this.lblLoadImgH.TabIndex = 23;
+			this.lblLoadImgH.Text = "label17";
+			// 
+			// lblLoadImgW
+			// 
+			this.lblLoadImgW.AutoSize = true;
+			this.lblLoadImgW.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.lblLoadImgW.Location = new System.Drawing.Point(150, 275);
+			this.lblLoadImgW.Name = "lblLoadImgW";
+			this.lblLoadImgW.Size = new System.Drawing.Size(78, 21);
+			this.lblLoadImgW.TabIndex = 22;
+			this.lblLoadImgW.Text = "label18";
+			// 
+			// lblVrtBrFrtV
+			// 
+			this.lblVrtBrFrtV.AutoSize = true;
+			this.lblVrtBrFrtV.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.lblVrtBrFrtV.Location = new System.Drawing.Point(150, 186);
+			this.lblVrtBrFrtV.Name = "lblVrtBrFrtV";
+			this.lblVrtBrFrtV.Size = new System.Drawing.Size(78, 21);
+			this.lblVrtBrFrtV.TabIndex = 21;
+			this.lblVrtBrFrtV.Text = "label19";
+			// 
+			// lblHrzBrFrtV
+			// 
+			this.lblHrzBrFrtV.AutoSize = true;
+			this.lblHrzBrFrtV.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.lblHrzBrFrtV.Location = new System.Drawing.Point(150, 155);
+			this.lblHrzBrFrtV.Name = "lblHrzBrFrtV";
+			this.lblHrzBrFrtV.Size = new System.Drawing.Size(78, 21);
+			this.lblHrzBrFrtV.TabIndex = 20;
+			this.lblHrzBrFrtV.Text = "label20";
+			// 
+			// lblBckPicBxH
+			// 
+			this.lblBckPicBxH.AutoSize = true;
+			this.lblBckPicBxH.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.lblBckPicBxH.Location = new System.Drawing.Point(150, 125);
+			this.lblBckPicBxH.Name = "lblBckPicBxH";
+			this.lblBckPicBxH.Size = new System.Drawing.Size(78, 21);
+			this.lblBckPicBxH.TabIndex = 19;
+			this.lblBckPicBxH.Text = "label21";
+			// 
+			// lblBckPicBxW
+			// 
+			this.lblBckPicBxW.AutoSize = true;
+			this.lblBckPicBxW.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.lblBckPicBxW.Location = new System.Drawing.Point(150, 95);
+			this.lblBckPicBxW.Name = "lblBckPicBxW";
+			this.lblBckPicBxW.Size = new System.Drawing.Size(78, 21);
+			this.lblBckPicBxW.TabIndex = 18;
+			this.lblBckPicBxW.Text = "label22";
+			// 
+			// lblFrtPicBxH
+			// 
+			this.lblFrtPicBxH.AutoSize = true;
+			this.lblFrtPicBxH.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.lblFrtPicBxH.Location = new System.Drawing.Point(150, 64);
+			this.lblFrtPicBxH.Name = "lblFrtPicBxH";
+			this.lblFrtPicBxH.Size = new System.Drawing.Size(78, 21);
+			this.lblFrtPicBxH.TabIndex = 17;
+			this.lblFrtPicBxH.Text = "label23";
+			// 
+			// lblFrtPicBxW
+			// 
+			this.lblFrtPicBxW.AutoSize = true;
+			this.lblFrtPicBxW.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.lblFrtPicBxW.Location = new System.Drawing.Point(150, 35);
+			this.lblFrtPicBxW.Name = "lblFrtPicBxW";
+			this.lblFrtPicBxW.Size = new System.Drawing.Size(78, 21);
+			this.lblFrtPicBxW.TabIndex = 16;
+			this.lblFrtPicBxW.Text = "label24";
+			// 
+			// label12
+			// 
+			this.label12.AutoSize = true;
+			this.label12.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+			this.label12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.label12.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.label12.Location = new System.Drawing.Point(28, 428);
+			this.label12.Name = "label12";
+			this.label12.Size = new System.Drawing.Size(116, 18);
+			this.label12.TabIndex = 15;
+			this.label12.Text = "垂直移動(前景)";
+			// 
+			// label11
+			// 
+			this.label11.AutoSize = true;
+			this.label11.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+			this.label11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.label11.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.label11.Location = new System.Drawing.Point(22, 398);
+			this.label11.Name = "label11";
+			this.label11.Size = new System.Drawing.Size(122, 18);
+			this.label11.TabIndex = 14;
+			this.label11.Text = "水平移動（前景）";
+			// 
+			// label10
+			// 
+			this.label10.AutoSize = true;
+			this.label10.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+			this.label10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.label10.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.label10.Location = new System.Drawing.Point(61, 368);
+			this.label10.Name = "label10";
+			this.label10.Size = new System.Drawing.Size(83, 18);
+			this.label10.TabIndex = 13;
+			this.label10.Text = "カンバス：高";
+			// 
+			// label9
+			// 
+			this.label9.AutoSize = true;
+			this.label9.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+			this.label9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.label9.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.label9.Location = new System.Drawing.Point(61, 338);
+			this.label9.Name = "label9";
+			this.label9.Size = new System.Drawing.Size(83, 18);
+			this.label9.TabIndex = 12;
+			this.label9.Text = "カンバス：幅";
+			// 
+			// label8
+			// 
+			this.label8.AutoSize = true;
+			this.label8.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+			this.label8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.label8.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.label8.Location = new System.Drawing.Point(54, 308);
+			this.label8.Name = "label8";
+			this.label8.Size = new System.Drawing.Size(90, 18);
+			this.label8.TabIndex = 11;
+			this.label8.Text = "読込画像高";
+			// 
+			// label7
+			// 
+			this.label7.AutoSize = true;
+			this.label7.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+			this.label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.label7.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.label7.Location = new System.Drawing.Point(46, 278);
+			this.label7.Name = "label7";
+			this.label7.Size = new System.Drawing.Size(98, 18);
+			this.label7.TabIndex = 10;
+			this.label7.Text = "読込画像：幅";
+			// 
 			// label6
 			// 
 			this.label6.AutoSize = true;
-			this.label6.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-			this.label6.Location = new System.Drawing.Point(3, 93);
+			this.label6.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+			this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.label6.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.label6.Location = new System.Drawing.Point(6, 188);
 			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(66, 21);
+			this.label6.Size = new System.Drawing.Size(138, 18);
 			this.label6.TabIndex = 9;
-			this.label6.Text = "label6";
+			this.label6.Text = "垂直バーMax(前景)";
 			// 
 			// label5
 			// 
 			this.label5.AutoSize = true;
-			this.label5.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-			this.label5.Location = new System.Drawing.Point(3, 72);
+			this.label5.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+			this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.label5.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.label5.Location = new System.Drawing.Point(6, 158);
 			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(66, 21);
+			this.label5.Size = new System.Drawing.Size(138, 18);
 			this.label5.TabIndex = 8;
-			this.label5.Text = "label5";
+			this.label5.Text = "水平バーMax(前景)";
 			// 
 			// label4
 			// 
 			this.label4.AutoSize = true;
-			this.label4.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-			this.label4.Location = new System.Drawing.Point(3, 257);
+			this.label4.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+			this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.label4.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.label4.Location = new System.Drawing.Point(78, 128);
 			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(66, 21);
+			this.label4.Size = new System.Drawing.Size(66, 18);
 			this.label4.TabIndex = 7;
-			this.label4.Text = "label4";
+			this.label4.Text = "背景：高";
 			// 
 			// label3
 			// 
 			this.label3.AutoSize = true;
-			this.label3.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-			this.label3.Location = new System.Drawing.Point(3, 236);
+			this.label3.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+			this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.label3.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.label3.Location = new System.Drawing.Point(78, 98);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(66, 21);
+			this.label3.Size = new System.Drawing.Size(66, 18);
 			this.label3.TabIndex = 6;
-			this.label3.Text = "label3";
+			this.label3.Text = "背景：幅";
 			// 
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-			this.label2.Location = new System.Drawing.Point(3, 215);
+			this.label2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+			this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.label2.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.label2.Location = new System.Drawing.Point(78, 68);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(66, 21);
+			this.label2.Size = new System.Drawing.Size(66, 18);
 			this.label2.TabIndex = 5;
-			this.label2.Text = "label2";
+			this.label2.Text = "前景：高";
 			// 
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-			this.label1.Location = new System.Drawing.Point(3, 194);
+			this.label1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+			this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.label1.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.label1.Location = new System.Drawing.Point(78, 38);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(66, 21);
+			this.label1.Size = new System.Drawing.Size(66, 18);
 			this.label1.TabIndex = 4;
-			this.label1.Text = "label1";
+			this.label1.Text = "前景：幅";
 			// 
 			// button1
 			// 
@@ -345,12 +689,39 @@
         private System.Windows.Forms.RadioButton rdBtnBckPicMv;
         private System.Windows.Forms.RadioButton rdBtnFrtPicMv;
 		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.Label label5;
-		public System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Label label6;
+		private System.Windows.Forms.Label label7;
+		private System.Windows.Forms.Label label8;
+		private System.Windows.Forms.Label label9;
+		private System.Windows.Forms.Label label10;
+		private System.Windows.Forms.Label label11;
+		private System.Windows.Forms.Label label12;
+		private System.Windows.Forms.Label label13;
+		private System.Windows.Forms.Label label14;
+		private System.Windows.Forms.Label label17;
+		private System.Windows.Forms.Label label18;
+
+		public System.Windows.Forms.Label lblVrtBrFrtMoveV;
+		public System.Windows.Forms.Label lblHrzBrFrtMoveV;
+		public System.Windows.Forms.Label lblCanvsH;
+		public System.Windows.Forms.Label lblCanvsW;
+		public System.Windows.Forms.Label lblLoadImgH;
+		public System.Windows.Forms.Label lblLoadImgW;
+		public System.Windows.Forms.Label lblVrtBrFrtV;
+		public System.Windows.Forms.Label lblHrzBrFrtV;
+		public System.Windows.Forms.Label lblBckPicBxH;
+		public System.Windows.Forms.Label lblBckPicBxW;
+		public System.Windows.Forms.Label lblFrtPicBxH;
+		public System.Windows.Forms.Label lblFrtPicBxW;
+		public System.Windows.Forms.Label lblVrtBrBckMoveV;
+		public System.Windows.Forms.Label lblHrzBrBckMoveV;
+		public System.Windows.Forms.Label lblVrtBrBckV;
+		public System.Windows.Forms.Label lblHrzBrBckV;
     }
 }
 

@@ -36,9 +36,17 @@ namespace WDensity {
 		private static int _FrtPicDrwPsOfstX;//前景画像の中心＝前景描画キャンバスの中心となる位置へのオフセット
 		private static int _FrtPicDrwPsOfstY;
 
-		private int _SclTrckBrInitialVal; //　　縮尺　　　　の初期値
-		private int _trckBrHrzInitialVal; //水平移動トラックバーの初期値
-		private int _trckBrVrtInitialVal; //垂直移動トラックバーの初期値
+		private int _SclTrckBrInitVal; //　　縮尺　　　　の初期値
+
+		private int _trckBrHrzFrtMaxVal; //前景移動用の水平移動トラックバーの最大値
+		private int _trckBrVrtFrtMaxVal; //前景移動用の垂直移動トラックバーの最大値
+		private int _trckBrHrzBckMaxVal; //背景移動用の水平移動トラックバーの最大値
+		private int _trckBrVrtBckMaxVal; //背景移動用の垂直移動トラックバーの最大値
+		private int _trckBrHrzFrtInitVal; //前景移動用の水平移動トラックバーの初期値
+		private int _trckBrVrtFrtInitVal; //前景移動用の垂直移動トラックバーの初期値
+		private int _trckBrHrzBckInitVal; //背景移動用の水平移動トラックバーの初期値
+		private int _trckBrVrtBckInitVal; //背景移動用の垂直移動トラックバーの初期値
+		private DbgShowVal dbgShowVal;//デバッグ用のクラス
 
 		public enum _EdtTyp : int {
 			Horizontal = 1, Vertical = 2, Scale = 3
@@ -49,9 +57,8 @@ namespace WDensity {
 		}
 
 		private void Form1_Load(object sender, EventArgs e) {
-			DebugShowValue debugShowValue = new DebugShowValue(this);
-			debugShowValue.aa();
-	
+			//デバッグ用
+			dbgShowVal = new DbgShowVal(this);
 			
 			//			if (canvas != null) canvas.Dispose();
 
@@ -86,19 +93,48 @@ namespace WDensity {
 
 			#region トラックバー値の初期設定
 			//スライダーの【移動量の最大値】は、背景画像の大きさの１／２とする(±１／１)
-			trckBrHrz.Maximum = _LoadedBckImgObj.Width / 2;
+
+//			_trckBrHrzFrtMaxVal; //前景移動用の水平移動トラックバーの最大値
+//			_trckBrVrtFrtMaxVal; //前景移動用の垂直移動トラックバーの最大値
+			_trckBrHrzBckMaxVal = _LoadedBckImgObj.Width / 2;//背景移動用の水平移動トラックバーの最大値
+			_trckBrVrtBckMaxVal = _LoadedBckImgObj.Height / 2;//背景移動用の垂直移動トラックバーの最大値
+//			_trckBrHrzFrtInitVal; //前景移動用の水平移動トラックバーの初期値
+//			_trckBrVrtFrtInitVal; //前景移動用の垂直移動トラックバーの初期値
+			_trckBrHrzBckInitVal = _trckBrHrzBckMaxVal / 2; //背景移動用の水平移動トラックバーの初期値
+			_trckBrVrtBckInitVal = _trckBrVrtBckMaxVal /2; //背景移動用の垂直移動トラックバーの初期値
+
+
+
+			//初期画面のトラックバーの位置を背景画像選択時の状態にする為、ラジをボタンを背景画像移動にしておく
+			rdBtnBckPicMv.Checked = true;
+			trckBrHrz.Maximum = _trckBrHrzBckMaxVal;
 			trckBrVrt.Maximum = _LoadedBckImgObj.Height / 2;
 			trckBrHrz.Size = new Size(picBxBck.Width, trckBrHrz.Size.Height);
 			trckBrVrt.Size = new Size(trckBrHrz.Size.Width, picBxBck.Height);
 			
 			//スライダーの【つまみの初期値】は背景画像の大きさの１／４とする（移動量は±１／２）
-			trckBrHrz.Value = _LoadedBckImgObj.Width / 4;
-			trckBrVrt.Value = trckBrVrt.Maximum / 2;
-			_SclTrckBrInitialVal = trckBrScl.Value;//縮尺トラックバーの初期位置を保存
-			_trckBrHrzInitialVal = trckBrHrz.Value;//水平トラックバーの初期位置を保存
-			_trckBrVrtInitialVal = trckBrVrt.Value;//垂直トラックバーの初期位置を保存
+			trckBrHrz.Value = _trckBrHrzBckInitVal;
+			trckBrVrt.Value = _trckBrVrtBckInitVal;
+			_SclTrckBrInitVal = trckBrScl.Value;//縮尺トラックバーの初期位置を保存
+			_trckBrHrzFrtInitVal = trckBrHrz.Value;//水平トラックバーの初期位置を保存
+			_trckBrVrtFrtInitVal = trckBrVrt.Value;//垂直トラックバーの初期位置を保存
 
 			#endregion
+
+			#region//デバッグ
+			dbgShowVal.setVal(	bckPicBxW:_LoadedFrtImgObj.Width,
+								bckPicBxH:_LoadedFrtImgObj.Height,
+								vrtBrBckV: trckBrVrt.Value,
+								hrzBrBckV: trckBrHrz.Value,
+								vrtBrBckMoveV: trckBrVrt.Value,
+								hrzBrBckMoveV: trckBrHrz.Value
+				
+				
+				);
+			#endregion
+
+	
+		
 		}
 
 
@@ -131,9 +167,9 @@ namespace WDensity {
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		private void trckBr_Scroll(object sender, EventArgs e) {
-label2.Text = "水平：現在値＝" + trckBrHrz.Value.ToString();
-label3.Text = "水平：初期値＝" + _trckBrHrzInitialVal.ToString();
-label4.Text = "水平：移動値＝" + (_trckBrHrzInitialVal-trckBrHrz.Value).ToString();
+			label2.Text = "水平：現在値＝" + trckBrHrz.Value.ToString();
+//label3.Text = "水平：初期値＝" + _trckBrHrzFrtInitVal.ToString();
+//label4.Text = "水平：移動値＝" + (_trckBrHrzFrtInitVal-trckBrHrz.Value).ToString();
 			#region 画像【水平移動】トラックバーイベント
 			if (((TrackBar)sender).Name == "trckBrHrz") {
 				//前景？
@@ -142,14 +178,16 @@ label4.Text = "水平：移動値＝" + (_trckBrHrzInitialVal-trckBrHrz.Value).T
 								_BmpCanvasFrt,						//描画先カンバス
 								_LoadedFrtImgObj,					//描画先カンバス
 								_EdtTyp.Horizontal,					//読み込んだ画像
-								_trckBrHrzInitialVal - trckBrHrz.Value,	//スライダーの移動量
+								_trckBrHrzFrtInitVal - trckBrHrz.Value,	//スライダーの移動量
 								_RctFrtImg								//読込画像の大きさ＝カンバスの大きさ
 								);
+ここから、水平移動量を表示したい
+					dbgShowVal.setVal(hrzBrBckMoveV: _trckBrHrzFrtInitVal - trckBrHrz.Value);
 				}
 				//背景？
 				if (rdBtnBckPicMv.Checked) {
 					movePicture(picBxBck, _BmpCanvasBck, _LoadedBckImgObj,_EdtTyp.Horizontal,
-								_trckBrHrzInitialVal - trckBrHrz.Value, _RctBckImg);
+								_trckBrHrzFrtInitVal - trckBrHrz.Value, _RctBckImg);
 				}
 			}
 			#endregion
@@ -159,12 +197,12 @@ label4.Text = "水平：移動値＝" + (_trckBrHrzInitialVal-trckBrHrz.Value).T
 				//前景？
 				if (rdBtnFrtPicMv.Checked) {
 					movePicture(picBxFrt, _BmpCanvasFrt, _LoadedFrtImgObj, _EdtTyp.Vertical,
-								_trckBrVrtInitialVal - trckBrVrt.Value, _RctFrtImg);
+								_trckBrVrtFrtInitVal - trckBrVrt.Value, _RctFrtImg);
 				}
 				//背景？
 				if (rdBtnBckPicMv.Checked) {
 					movePicture(picBxBck, _BmpCanvasBck, _LoadedBckImgObj, _EdtTyp.Vertical,
-								_trckBrVrtInitialVal - trckBrVrt.Value, _RctBckImg);
+								_trckBrVrtFrtInitVal - trckBrVrt.Value, _RctBckImg);
 				}
 			}
 			#endregion
@@ -174,12 +212,12 @@ label4.Text = "水平：移動値＝" + (_trckBrHrzInitialVal-trckBrHrz.Value).T
 				//前景？
 				if (rdBtnFrtPicMv.Checked) {
 					movePicture(picBxFrt, _BmpCanvasFrt, _LoadedFrtImgObj, _EdtTyp.Scale,
-								trckBrScl.Value - _SclTrckBrInitialVal, _RctFrtImg);
+								trckBrScl.Value - _SclTrckBrInitVal, _RctFrtImg);
 				}
 				//背景？
 				if (rdBtnBckPicMv.Checked) {
 					movePicture(picBxBck, _BmpCanvasBck, _LoadedBckImgObj, _EdtTyp.Scale,
-								trckBrScl.Value - _SclTrckBrInitialVal, _RctBckImg);
+								trckBrScl.Value - _SclTrckBrInitVal, _RctBckImg);
 				}
 			}
 			#endregion
@@ -233,8 +271,8 @@ label1.Text = "垂直移動量＝" + mvVal.ToString();
 			float scaleVal = 0.0F;
 			if (edtTyp == _EdtTyp.Scale) {
 				g.ResetTransform();	//ワールド変換行列を単位行列にリセット
-				if ((trckBrScl.Value - _SclTrckBrInitialVal) >= 0) {//スライダーが中央より右にスライドした場合
-					scaleVal = 1F + ((float)(trckBrScl.Value - _SclTrckBrInitialVal)) / 100F;
+				if ((trckBrScl.Value - _SclTrckBrInitVal) >= 0) {//スライダーが中央より右にスライドした場合
+					scaleVal = 1F + ((float)(trckBrScl.Value - _SclTrckBrInitVal)) / 100F;
 					label1.Text = scaleVal.ToString();
 					g.ScaleTransform(scaleVal, scaleVal);
 				}
