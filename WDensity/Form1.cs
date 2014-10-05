@@ -20,16 +20,16 @@ namespace WDensity {
 
 	public partial class Form1 : Form {
 		//オブジェクトの宣言のみ(実体はイニシャルメソッドの中で作成)
-		private static Bitmap _BmpCanvasBck;//背景描画先(canvas)とするビットマップオブジェクトの宣言
-		private static Bitmap _BmpCanvasFrt;//前景描画先(canvas)とするビットマップオブジェクトの宣言
+		private static Bitmap _CanvasBck;//背景描画先(canvas)とするビットマップオブジェクトの宣言
+		private static Bitmap _CanvasFrt;//前景描画先(canvas)とするビットマップオブジェクトの宣言
 		private static Image _LoadedBckImgObj;//読み込んだ背景画像のイメージオブジェクトの宣言
 		private static Image _LoadedFrtImgObj;//読み込んだ前景描画のイメージオブジェクトの宣言
 
 
 		public static float _ZoomRatio = 1F;//倍率
 		//画像の描画領域(大きさ)と位置を保持する変数⇒領域を拡大・縮小することで画像を拡大・縮小できる。
-		private static Rectangle _RctBckImg = new Rectangle(0, 0, 0, 0);//背景画像用変数
-		private static Rectangle _RctFrtImg;//前景画像用
+		private static Rectangle _CanvsRctBckImg = new Rectangle(0, 0, 0, 0);//背景画像用変数
+		private static Rectangle _CanvsRctFrtImg = new Rectangle(0, 0, 0, 0);//前景画像用
 
 		private static int _BckPicDrwPsOfstX;//背景画像の中心＝背景描画キャンバスの中心となる位置へのオフセット
 		private static int _BckPicDrwPsOfstY;
@@ -62,20 +62,16 @@ namespace WDensity {
 			
 			//			if (canvas != null) canvas.Dispose();
 
-			//描画先(canvas)のビットマップオブジェクトの実体を作成
-			_BmpCanvasBck = new Bitmap(picBxBck.Width, picBxBck.Height);
-			_BmpCanvasFrt = new Bitmap(picBxFrt.Width, picBxFrt.Height);
-			//宣言した描画先(canvas)のGraphicsオブジェクトの実態を作成
-//			_G_CanvasBck = Graphics.FromImage(_CanvasBck);
-//			_G_CanvasFrt = Graphics.FromImage(_CanvasFrt);
-
-			//背景画像を読み込む
+			//画像を読み込む
 			_LoadedBckImgObj = Image.FromFile("house.jpg");
 			_LoadedFrtImgObj = Image.FromFile("traget.jpg");
 
+			//描画先(canvas)のビットマップオブジェクトの実体を作成
+			_CanvasBck = new Bitmap(_LoadedBckImgObj.Width, _LoadedBckImgObj.Height);
+			_CanvasFrt = new Bitmap(_LoadedFrtImgObj.Width, _LoadedFrtImgObj.Height);
 			//カンバスの大きさをセットする為の読込画像の大きさ⇒∴ピクチャーボックスの大きさ！＝画像の大きさ
-			_RctBckImg = new Rectangle(0, 0, _LoadedBckImgObj.Width, _LoadedBckImgObj.Height);
-			_RctFrtImg = new Rectangle(0, 0, _LoadedFrtImgObj.Width, _LoadedFrtImgObj.Height);
+			_CanvsRctBckImg = new Rectangle(0, 0, _LoadedBckImgObj.Width, _LoadedBckImgObj.Height);
+			_CanvsRctFrtImg = new Rectangle(0, 0, _LoadedFrtImgObj.Width, _LoadedFrtImgObj.Height);
 
 
 			_BckPicDrwPsOfstX = (_LoadedBckImgObj.Width - picBxBck.Width) / 2;
@@ -86,54 +82,54 @@ namespace WDensity {
 
 			#region　【画像の初期表示】読み込んだ画像の中心が、カンバスの中心になるよう描画
 			//　　　       〃　　　　　　　　　　前景画像　　　　　　〃
-			drawPic2Center(picBxFrt, _BmpCanvasFrt, _FrtPicDrwPsOfstX, _FrtPicDrwPsOfstY, _LoadedFrtImgObj, _RctFrtImg);
+			drawPic2Center(picBxFrt, _CanvasFrt, _FrtPicDrwPsOfstX, _FrtPicDrwPsOfstY, _LoadedFrtImgObj, _CanvsRctFrtImg);
 			//　　　       〃　　　　　　　　　　背景画像　　　　　　〃
-			drawPic2Center(picBxBck, _BmpCanvasBck, _BckPicDrwPsOfstX, _BckPicDrwPsOfstY, _LoadedBckImgObj, _RctBckImg);
+			drawPic2Center(picBxBck, _CanvasBck, _BckPicDrwPsOfstX, _BckPicDrwPsOfstY, _LoadedBckImgObj, _CanvsRctBckImg);
 			#endregion
 
 			#region トラックバー値の初期設定
-			//スライダーの【移動量の最大値】は、背景画像の大きさの１／２とする(±１／１)
+			//スライダーの【移動量の最大値】は、読込画像の大きさの１／２とする
+			//前景処理用
+			_trckBrHrzFrtMaxVal = _LoadedFrtImgObj.Width / 2; //トラックバーの最大値（水平移動用)
+			_trckBrVrtFrtMaxVal = _LoadedFrtImgObj.Height / 2;//　　　　　〃　　    （垂直移動用)
+			_trckBrHrzFrtInitVal = _trckBrHrzFrtMaxVal / 2;   //つまみの初期位置(読込画像の１／４)（水平移動用)
+			_trckBrVrtFrtInitVal = _trckBrVrtFrtMaxVal / 2;   //　　　　　〃　                  　（垂直移動用)
 
-//			_trckBrHrzFrtMaxVal; //前景移動用の水平移動トラックバーの最大値
-//			_trckBrVrtFrtMaxVal; //前景移動用の垂直移動トラックバーの最大値
-			_trckBrHrzBckMaxVal = _LoadedBckImgObj.Width / 2;//背景移動用の水平移動トラックバーの最大値
-			_trckBrVrtBckMaxVal = _LoadedBckImgObj.Height / 2;//背景移動用の垂直移動トラックバーの最大値
-//			_trckBrHrzFrtInitVal; //前景移動用の水平移動トラックバーの初期値
-//			_trckBrVrtFrtInitVal; //前景移動用の垂直移動トラックバーの初期値
-			_trckBrHrzBckInitVal = _trckBrHrzBckMaxVal / 2; //背景移動用の水平移動トラックバーの初期値
-			_trckBrVrtBckInitVal = _trckBrVrtBckMaxVal /2; //背景移動用の垂直移動トラックバーの初期値
+			_trckBrHrzBckMaxVal = _LoadedBckImgObj.Width / 2; //トラックバーの最大値（水平移動用)
+			_trckBrVrtBckMaxVal = _LoadedBckImgObj.Height / 2;//　　　　　〃　　    （垂直移動用)
+			_trckBrHrzBckInitVal = _trckBrHrzBckMaxVal / 2;   //つまみの初期位置(読込画像の１／４)（水平移動用)
+			_trckBrVrtBckInitVal = _trckBrVrtBckMaxVal / 2;   //　　　　　〃　                  　（垂直移動用)
 
-
-
-			//初期画面のトラックバーの位置を背景画像選択時の状態にする為、ラジをボタンを背景画像移動にしておく
+			//背景画像の編集設定で起動
+			//初期画面のトラックバーの位置を背景画像選択時の状態にする為、ラジオボタンを背景画像移動にしておく
 			rdBtnBckPicMv.Checked = true;
 			trckBrHrz.Maximum = _trckBrHrzBckMaxVal;
-			trckBrVrt.Maximum = _LoadedBckImgObj.Height / 2;
-			trckBrHrz.Size = new Size(picBxBck.Width, trckBrHrz.Size.Height);
-			trckBrVrt.Size = new Size(trckBrHrz.Size.Width, picBxBck.Height);
-			
-			//スライダーの【つまみの初期値】は背景画像の大きさの１／４とする（移動量は±１／２）
+			trckBrVrt.Maximum = _trckBrVrtBckMaxVal;
+			//スライダーのつまみの初期値設定
 			trckBrHrz.Value = _trckBrHrzBckInitVal;
 			trckBrVrt.Value = _trckBrVrtBckInitVal;
-			_SclTrckBrInitVal = trckBrScl.Value;//縮尺トラックバーの初期位置を保存
-			_trckBrHrzFrtInitVal = trckBrHrz.Value;//水平トラックバーの初期位置を保存
-			_trckBrVrtFrtInitVal = trckBrVrt.Value;//垂直トラックバーの初期位置を保存
+			//			_SclTrckBrInitVal = trckBrScl.Value;//縮尺トラックバーの初期位置を保存
+			trckBrHrz.Size = new Size(picBxBck.Width, trckBrHrz.Size.Height);//幅をピクチャ―ボックスの幅とする
+			trckBrVrt.Size = new Size(trckBrHrz.Size.Width, picBxBck.Height);//高さをピクチャ―ボックスの高さとする
+			
 
 			#endregion
 
 			#region//デバッグ
-			dbgShowVal.setVal(	bckPicBxW:_LoadedFrtImgObj.Width,
-								bckPicBxH:_LoadedFrtImgObj.Height,
-								vrtBrBckV: trckBrVrt.Value,
-								hrzBrBckV: trckBrHrz.Value,
-								vrtBrBckMoveV: trckBrVrt.Value,
-								hrzBrBckMoveV: trckBrHrz.Value
-				
-				
-				);
+			dbgShowVal.setVal(	bckPicBxW:	picBxBck.Width,
+								bckPicBxH:	picBxBck.Height,
+								vrtBrBckMax:_trckBrHrzBckMaxVal,
+								hrzBrBckMax:_trckBrVrtBckMaxVal,
+								loadImgBckW:_LoadedBckImgObj.Width,
+								loadImgBckH:_LoadedBckImgObj.Height,
+								canvsBckW:	_CanvasBck.Width,
+								canvsBckH:	_CanvasBck.Height,
+								vrtBrBckMoveV: _trckBrVrtBckInitVal - trckBrVrt.Value,
+								hrzBrBckMoveV: _trckBrHrzBckInitVal - trckBrHrz.Value,
+								offstBckX: _BckPicDrwPsOfstX,
+								offstBckY: _BckPicDrwPsOfstY
+			);
 			#endregion
-
-	
 		
 		}
 
@@ -167,27 +163,24 @@ namespace WDensity {
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		private void trckBr_Scroll(object sender, EventArgs e) {
-			label2.Text = "水平：現在値＝" + trckBrHrz.Value.ToString();
-//label3.Text = "水平：初期値＝" + _trckBrHrzFrtInitVal.ToString();
-//label4.Text = "水平：移動値＝" + (_trckBrHrzFrtInitVal-trckBrHrz.Value).ToString();
 			#region 画像【水平移動】トラックバーイベント
 			if (((TrackBar)sender).Name == "trckBrHrz") {
-				//前景？
+				//前景処理なら
 				if (rdBtnFrtPicMv.Checked) {
+					//画像移動
 					movePicture(picBxFrt,							//画像表示先ピクチャーボックスコントロール 
-								_BmpCanvasFrt,						//描画先カンバス
+								_CanvasFrt,						//描画先カンバス
 								_LoadedFrtImgObj,					//描画先カンバス
 								_EdtTyp.Horizontal,					//読み込んだ画像
 								_trckBrHrzFrtInitVal - trckBrHrz.Value,	//スライダーの移動量
-								_RctFrtImg								//読込画像の大きさ＝カンバスの大きさ
+								_CanvsRctFrtImg								//読込画像の大きさ＝カンバスの大きさ
 								);
-ここから、水平移動量を表示したい
-					dbgShowVal.setVal(hrzBrBckMoveV: _trckBrHrzFrtInitVal - trckBrHrz.Value);
+//dbgShowVal.setVal(hrzBrBckMoveV: _trckBrHrzFrtInitVal - trckBrHrz.Value);
 				}
-				//背景？
+				//背景処理なら
 				if (rdBtnBckPicMv.Checked) {
-					movePicture(picBxBck, _BmpCanvasBck, _LoadedBckImgObj,_EdtTyp.Horizontal,
-								_trckBrHrzFrtInitVal - trckBrHrz.Value, _RctBckImg);
+					movePicture(picBxBck, _CanvasBck, _LoadedBckImgObj,_EdtTyp.Horizontal,
+								_trckBrHrzFrtInitVal - trckBrHrz.Value, _CanvsRctBckImg);
 				}
 			}
 			#endregion
@@ -196,13 +189,13 @@ namespace WDensity {
 			if (((TrackBar)sender).Name == "trckBrVrt") {
 				//前景？
 				if (rdBtnFrtPicMv.Checked) {
-					movePicture(picBxFrt, _BmpCanvasFrt, _LoadedFrtImgObj, _EdtTyp.Vertical,
-								_trckBrVrtFrtInitVal - trckBrVrt.Value, _RctFrtImg);
+					movePicture(picBxFrt, _CanvasFrt, _LoadedFrtImgObj, _EdtTyp.Vertical,
+								_trckBrVrtFrtInitVal - trckBrVrt.Value, _CanvsRctFrtImg);
 				}
 				//背景？
 				if (rdBtnBckPicMv.Checked) {
-					movePicture(picBxBck, _BmpCanvasBck, _LoadedBckImgObj, _EdtTyp.Vertical,
-								_trckBrVrtFrtInitVal - trckBrVrt.Value, _RctBckImg);
+					movePicture(picBxBck, _CanvasBck, _LoadedBckImgObj, _EdtTyp.Vertical,
+								_trckBrVrtFrtInitVal - trckBrVrt.Value, _CanvsRctBckImg);
 				}
 			}
 			#endregion
@@ -211,13 +204,13 @@ namespace WDensity {
 			if (((TrackBar)sender).Name == "trckBrScl") {
 				//前景？
 				if (rdBtnFrtPicMv.Checked) {
-					movePicture(picBxFrt, _BmpCanvasFrt, _LoadedFrtImgObj, _EdtTyp.Scale,
-								trckBrScl.Value - _SclTrckBrInitVal, _RctFrtImg);
+					movePicture(picBxFrt, _CanvasFrt, _LoadedFrtImgObj, _EdtTyp.Scale,
+								trckBrScl.Value - _SclTrckBrInitVal, _CanvsRctFrtImg);
 				}
 				//背景？
 				if (rdBtnBckPicMv.Checked) {
-					movePicture(picBxBck, _BmpCanvasBck, _LoadedBckImgObj, _EdtTyp.Scale,
-								trckBrScl.Value - _SclTrckBrInitVal, _RctBckImg);
+					movePicture(picBxBck, _CanvasBck, _LoadedBckImgObj, _EdtTyp.Scale,
+								trckBrScl.Value - _SclTrckBrInitVal, _CanvsRctBckImg);
 				}
 			}
 			#endregion
@@ -240,7 +233,6 @@ namespace WDensity {
 			if (edtTyp == _EdtTyp.Horizontal) {
 				//変換行列初期化
 				g.ResetTransform();
-label1.Text = "水平移動量＝"+mvVal.ToString();
 				//ピクチャボックスの中心＝カンバスの中心＋スライダー移動量　となるよう、変換行列をセット
 				g.TranslateTransform(-_BckPicDrwPsOfstX - mvVal, -_BckPicDrwPsOfstY);
 				//グラフィックオブジェクトに背景画像を背景画像の大きさで描画する。
@@ -251,13 +243,18 @@ label1.Text = "水平移動量＝"+mvVal.ToString();
 				g.DrawImage(loadedImg, canvasRect);
 				//PictureBox1に表示する
 				picBox.Image = canvas;
+				#region デバッグ出力
+					#if DEBUG
+				dbgShowVal.setVal(hrzBrBckMoveV: trckBrHrz.Value - _trckBrHrzBckInitVal);
+					#endif
+				#endregion
 			}
 			#endregion
 
 			#region 画像【垂直移動】
 			if (edtTyp == _EdtTyp.Vertical) {
 				g.ResetTransform();
-label1.Text = "垂直移動量＝" + mvVal.ToString();
+//label1.Text = "垂直移動量＝" + mvVal.ToString();
 				//ピクチャボックスの中心＝カンバスの中心＋スライダー移動量　となるよう、変換行列をセット
 				g.TranslateTransform(-_BckPicDrwPsOfstX, -_BckPicDrwPsOfstY + mvVal);
 				g.DrawImage(loadedImg, canvasRect);
@@ -278,7 +275,7 @@ label1.Text = "垂直移動量＝" + mvVal.ToString();
 				}
 				g.DrawImage(loadedImg, canvasRect);
 				//PictureBox1に表示する
-				picBox.Image = _BmpCanvasBck;
+				picBox.Image = _CanvasBck;
 			}
 			#endregion
 
@@ -286,7 +283,7 @@ label1.Text = "垂直移動量＝" + mvVal.ToString();
 		}
 
 		private void button1_Click(object sender, EventArgs e) {
-			Graphics g = Graphics.FromImage(_BmpCanvasBck);
+			Graphics g = Graphics.FromImage(_CanvasBck);
 
 			//一旦画像クリア
 			g.Clear(Color.Black);
@@ -299,16 +296,9 @@ label1.Text = _BckPicDrwPsOfstX.ToString();
 			g.DrawImage(_LoadedBckImgObj, new Rectangle(0, 0, _LoadedBckImgObj.Width, _LoadedBckImgObj.Height));
 
 			//PictureBox1に表示する
-			picBxBck.Image = _BmpCanvasBck;
+			picBxBck.Image = _CanvasBck;
 
 			g.Dispose();
 		}
-
-		private void areat(int frtImgW, int frtImgH,int bckImgW, int bckImgH,int trbVMx,int trbHMx,int trbrVV,int trbrHV) {
-			label5.Text = "背景画像の幅：" + _RctBckImg.Width.ToString();
-			label6.Text = "水平トラックバーの現在値：" + trckBrHrz.Value.ToString();
-
-		}
-
 	}
 }
