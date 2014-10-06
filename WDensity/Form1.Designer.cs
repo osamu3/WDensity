@@ -25,7 +25,15 @@
         public void InitializeComponent() {
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
 			this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+			this.label27 = new System.Windows.Forms.Label();
 			this.panel2 = new System.Windows.Forms.Panel();
+			this.label16 = new System.Windows.Forms.Label();
+			this.lblOffstFrtY = new System.Windows.Forms.Label();
+			this.lblOffstFrtX = new System.Windows.Forms.Label();
+			this.label10 = new System.Windows.Forms.Label();
+			this.label8 = new System.Windows.Forms.Label();
+			this.label6 = new System.Windows.Forms.Label();
+			this.label15 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
 			this.label7 = new System.Windows.Forms.Label();
 			this.lblCanvsFrtH = new System.Windows.Forms.Label();
@@ -43,6 +51,9 @@
 			this.lblLoadFrtImgH = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.lblOffstBckY = new System.Windows.Forms.Label();
+			this.lblOffstBckX = new System.Windows.Forms.Label();
+			this.label4 = new System.Windows.Forms.Label();
 			this.label24 = new System.Windows.Forms.Label();
 			this.lblCanvsBckW = new System.Windows.Forms.Label();
 			this.lblVrtBrBckMax = new System.Windows.Forms.Label();
@@ -66,28 +77,18 @@
 			this.button1 = new System.Windows.Forms.Button();
 			this.picBxFrt = new System.Windows.Forms.PictureBox();
 			this.picBxBck = new System.Windows.Forms.PictureBox();
+			this.label19 = new System.Windows.Forms.Label();
+			this.label17 = new System.Windows.Forms.Label();
 			this.trckBrScl = new System.Windows.Forms.TrackBar();
 			this.trckBrHrz = new System.Windows.Forms.TrackBar();
+			this.label26 = new System.Windows.Forms.Label();
+			this.label25 = new System.Windows.Forms.Label();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.rdBtnBckPicScl = new System.Windows.Forms.RadioButton();
 			this.rdBtnFrtPicScl = new System.Windows.Forms.RadioButton();
 			this.rdBtnBckPicMv = new System.Windows.Forms.RadioButton();
 			this.rdBtnFrtPicMv = new System.Windows.Forms.RadioButton();
 			this.trckBrVrt = new System.Windows.Forms.TrackBar();
-			this.label4 = new System.Windows.Forms.Label();
-			this.lblOffstBckX = new System.Windows.Forms.Label();
-			this.lblOffstBckY = new System.Windows.Forms.Label();
-			this.label6 = new System.Windows.Forms.Label();
-			this.label15 = new System.Windows.Forms.Label();
-			this.label8 = new System.Windows.Forms.Label();
-			this.label10 = new System.Windows.Forms.Label();
-			this.lblOffstFrtY = new System.Windows.Forms.Label();
-			this.lblOffstFrtX = new System.Windows.Forms.Label();
-			this.label16 = new System.Windows.Forms.Label();
-			this.label17 = new System.Windows.Forms.Label();
-			this.label19 = new System.Windows.Forms.Label();
-			this.label25 = new System.Windows.Forms.Label();
-			this.label26 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
 			this.splitContainer1.Panel2.SuspendLayout();
@@ -138,6 +139,9 @@
 			// 
 			// splitContainer2.Panel1
 			// 
+			this.splitContainer2.Panel1.AutoScroll = true;
+			this.splitContainer2.Panel1.BackColor = System.Drawing.Color.Blue;
+			this.splitContainer2.Panel1.Controls.Add(this.label27);
 			this.splitContainer2.Panel1.Controls.Add(this.panel2);
 			this.splitContainer2.Panel1.Controls.Add(this.panel1);
 			this.splitContainer2.Panel1.Controls.Add(this.button1);
@@ -155,6 +159,16 @@
 			this.splitContainer2.SplitterDistance = 844;
 			this.splitContainer2.SplitterWidth = 6;
 			this.splitContainer2.TabIndex = 0;
+			// 
+			// label27
+			// 
+			this.label27.AutoSize = true;
+			this.label27.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.label27.Location = new System.Drawing.Point(321, 80);
+			this.label27.Name = "label27";
+			this.label27.Size = new System.Drawing.Size(85, 24);
+			this.label27.TabIndex = 41;
+			this.label27.Text = "初期値";
 			// 
 			// panel2
 			// 
@@ -187,6 +201,92 @@
 			this.panel2.Name = "panel2";
 			this.panel2.Size = new System.Drawing.Size(795, 57);
 			this.panel2.TabIndex = 40;
+			// 
+			// label16
+			// 
+			this.label16.AutoSize = true;
+			this.label16.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+			this.label16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.label16.Font = new System.Drawing.Font("MS UI Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.label16.Location = new System.Drawing.Point(722, 15);
+			this.label16.Name = "label16";
+			this.label16.Size = new System.Drawing.Size(35, 15);
+			this.label16.TabIndex = 46;
+			this.label16.Text = "縮尺";
+			// 
+			// lblOffstFrtY
+			// 
+			this.lblOffstFrtY.AutoSize = true;
+			this.lblOffstFrtY.BackColor = System.Drawing.Color.MediumTurquoise;
+			this.lblOffstFrtY.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.lblOffstFrtY.Font = new System.Drawing.Font("MS UI Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.lblOffstFrtY.Location = new System.Drawing.Point(651, 29);
+			this.lblOffstFrtY.MaximumSize = new System.Drawing.Size(45, 15);
+			this.lblOffstFrtY.MinimumSize = new System.Drawing.Size(45, 0);
+			this.lblOffstFrtY.Name = "lblOffstFrtY";
+			this.lblOffstFrtY.Size = new System.Drawing.Size(45, 15);
+			this.lblOffstFrtY.TabIndex = 45;
+			this.lblOffstFrtY.Text = "ofstY";
+			// 
+			// lblOffstFrtX
+			// 
+			this.lblOffstFrtX.AutoSize = true;
+			this.lblOffstFrtX.BackColor = System.Drawing.Color.MediumTurquoise;
+			this.lblOffstFrtX.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.lblOffstFrtX.Font = new System.Drawing.Font("MS UI Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.lblOffstFrtX.Location = new System.Drawing.Point(651, 4);
+			this.lblOffstFrtX.MaximumSize = new System.Drawing.Size(45, 15);
+			this.lblOffstFrtX.MinimumSize = new System.Drawing.Size(45, 0);
+			this.lblOffstFrtX.Name = "lblOffstFrtX";
+			this.lblOffstFrtX.Size = new System.Drawing.Size(45, 15);
+			this.lblOffstFrtX.TabIndex = 44;
+			this.lblOffstFrtX.Text = "ofstX";
+			// 
+			// label10
+			// 
+			this.label10.AutoSize = true;
+			this.label10.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+			this.label10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.label10.Font = new System.Drawing.Font("MS UI Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.label10.Location = new System.Drawing.Point(589, 15);
+			this.label10.Name = "label10";
+			this.label10.Size = new System.Drawing.Size(56, 15);
+			this.label10.TabIndex = 43;
+			this.label10.Text = "オフセット";
+			// 
+			// label8
+			// 
+			this.label8.AutoSize = true;
+			this.label8.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+			this.label8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.label8.Font = new System.Drawing.Font("MS UI Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.label8.Location = new System.Drawing.Point(285, 16);
+			this.label8.Name = "label8";
+			this.label8.Size = new System.Drawing.Size(48, 15);
+			this.label8.TabIndex = 42;
+			this.label8.Text = "PicBox";
+			// 
+			// label6
+			// 
+			this.label6.AutoSize = true;
+			this.label6.BackColor = System.Drawing.Color.Transparent;
+			this.label6.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.label6.Location = new System.Drawing.Point(48, 28);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(25, 16);
+			this.label6.TabIndex = 41;
+			this.label6.Text = "高";
+			// 
+			// label15
+			// 
+			this.label15.AutoSize = true;
+			this.label15.BackColor = System.Drawing.Color.Transparent;
+			this.label15.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.label15.Location = new System.Drawing.Point(48, 9);
+			this.label15.Name = "label15";
+			this.label15.Size = new System.Drawing.Size(25, 16);
+			this.label15.TabIndex = 40;
+			this.label15.Text = "幅";
 			// 
 			// label3
 			// 
@@ -430,6 +530,48 @@
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(836, 44);
 			this.panel1.TabIndex = 39;
+			// 
+			// lblOffstBckY
+			// 
+			this.lblOffstBckY.AutoSize = true;
+			this.lblOffstBckY.BackColor = System.Drawing.Color.DarkOrange;
+			this.lblOffstBckY.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.lblOffstBckY.Font = new System.Drawing.Font("MS UI Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.lblOffstBckY.Location = new System.Drawing.Point(689, 22);
+			this.lblOffstBckY.MaximumSize = new System.Drawing.Size(45, 16);
+			this.lblOffstBckY.MinimumSize = new System.Drawing.Size(45, 0);
+			this.lblOffstBckY.Name = "lblOffstBckY";
+			this.lblOffstBckY.Size = new System.Drawing.Size(45, 15);
+			this.lblOffstBckY.TabIndex = 46;
+			this.lblOffstBckY.Text = "ofstY";
+			this.lblOffstBckY.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
+			// lblOffstBckX
+			// 
+			this.lblOffstBckX.AutoSize = true;
+			this.lblOffstBckX.BackColor = System.Drawing.Color.DarkOrange;
+			this.lblOffstBckX.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.lblOffstBckX.Font = new System.Drawing.Font("MS UI Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.lblOffstBckX.Location = new System.Drawing.Point(688, 5);
+			this.lblOffstBckX.MaximumSize = new System.Drawing.Size(45, 16);
+			this.lblOffstBckX.MinimumSize = new System.Drawing.Size(45, 0);
+			this.lblOffstBckX.Name = "lblOffstBckX";
+			this.lblOffstBckX.Size = new System.Drawing.Size(45, 15);
+			this.lblOffstBckX.TabIndex = 45;
+			this.lblOffstBckX.Text = "ofstX";
+			this.lblOffstBckX.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.BackColor = System.Drawing.Color.Tan;
+			this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.label4.Font = new System.Drawing.Font("MS UI Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.label4.Location = new System.Drawing.Point(631, 14);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(56, 15);
+			this.label4.TabIndex = 44;
+			this.label4.Text = "オフセット";
 			// 
 			// label24
 			// 
@@ -710,7 +852,7 @@
 			// 
 			// picBxFrt
 			// 
-			this.picBxFrt.Location = new System.Drawing.Point(472, 396);
+			this.picBxFrt.Location = new System.Drawing.Point(25, 312);
 			this.picBxFrt.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
 			this.picBxFrt.Name = "picBxFrt";
 			this.picBxFrt.Size = new System.Drawing.Size(325, 238);
@@ -719,13 +861,30 @@
 			// 
 			// picBxBck
 			// 
-			this.picBxBck.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.picBxBck.Location = new System.Drawing.Point(0, 0);
+			this.picBxBck.Location = new System.Drawing.Point(10, 0);
 			this.picBxBck.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
 			this.picBxBck.Name = "picBxBck";
-			this.picBxBck.Size = new System.Drawing.Size(1438, 844);
+			this.picBxBck.Size = new System.Drawing.Size(1963, 789);
 			this.picBxBck.TabIndex = 1;
 			this.picBxBck.TabStop = false;
+			// 
+			// label19
+			// 
+			this.label19.AutoSize = true;
+			this.label19.Location = new System.Drawing.Point(1387, 24);
+			this.label19.Name = "label19";
+			this.label19.Size = new System.Drawing.Size(41, 12);
+			this.label19.TabIndex = 3;
+			this.label19.Text = "label19";
+			// 
+			// label17
+			// 
+			this.label17.AutoSize = true;
+			this.label17.Location = new System.Drawing.Point(703, 24);
+			this.label17.Name = "label17";
+			this.label17.Size = new System.Drawing.Size(41, 12);
+			this.label17.TabIndex = 2;
+			this.label17.Text = "label17";
 			// 
 			// trckBrScl
 			// 
@@ -755,6 +914,24 @@
 			this.trckBrHrz.TabIndex = 0;
 			this.trckBrHrz.Value = 250;
 			this.trckBrHrz.Scroll += new System.EventHandler(this.trckBr_Scroll);
+			// 
+			// label26
+			// 
+			this.label26.AutoSize = true;
+			this.label26.Location = new System.Drawing.Point(33, 12);
+			this.label26.Name = "label26";
+			this.label26.Size = new System.Drawing.Size(41, 12);
+			this.label26.TabIndex = 5;
+			this.label26.Text = "label26";
+			// 
+			// label25
+			// 
+			this.label25.AutoSize = true;
+			this.label25.Location = new System.Drawing.Point(33, 639);
+			this.label25.Name = "label25";
+			this.label25.Size = new System.Drawing.Size(41, 12);
+			this.label25.TabIndex = 4;
+			this.label25.Text = "label25";
 			// 
 			// groupBox1
 			// 
@@ -832,170 +1009,6 @@
 			this.trckBrVrt.Value = 100;
 			this.trckBrVrt.Scroll += new System.EventHandler(this.trckBr_Scroll);
 			// 
-			// label4
-			// 
-			this.label4.AutoSize = true;
-			this.label4.BackColor = System.Drawing.Color.Tan;
-			this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.label4.Font = new System.Drawing.Font("MS UI Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-			this.label4.Location = new System.Drawing.Point(631, 14);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(56, 15);
-			this.label4.TabIndex = 44;
-			this.label4.Text = "オフセット";
-			// 
-			// lblOffstBckX
-			// 
-			this.lblOffstBckX.AutoSize = true;
-			this.lblOffstBckX.BackColor = System.Drawing.Color.DarkOrange;
-			this.lblOffstBckX.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.lblOffstBckX.Font = new System.Drawing.Font("MS UI Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-			this.lblOffstBckX.Location = new System.Drawing.Point(688, 5);
-			this.lblOffstBckX.MaximumSize = new System.Drawing.Size(45, 16);
-			this.lblOffstBckX.MinimumSize = new System.Drawing.Size(45, 0);
-			this.lblOffstBckX.Name = "lblOffstBckX";
-			this.lblOffstBckX.Size = new System.Drawing.Size(45, 15);
-			this.lblOffstBckX.TabIndex = 45;
-			this.lblOffstBckX.Text = "ofstX";
-			this.lblOffstBckX.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			// 
-			// lblOffstBckY
-			// 
-			this.lblOffstBckY.AutoSize = true;
-			this.lblOffstBckY.BackColor = System.Drawing.Color.DarkOrange;
-			this.lblOffstBckY.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.lblOffstBckY.Font = new System.Drawing.Font("MS UI Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-			this.lblOffstBckY.Location = new System.Drawing.Point(689, 22);
-			this.lblOffstBckY.MaximumSize = new System.Drawing.Size(45, 16);
-			this.lblOffstBckY.MinimumSize = new System.Drawing.Size(45, 0);
-			this.lblOffstBckY.Name = "lblOffstBckY";
-			this.lblOffstBckY.Size = new System.Drawing.Size(45, 15);
-			this.lblOffstBckY.TabIndex = 46;
-			this.lblOffstBckY.Text = "ofstY";
-			this.lblOffstBckY.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			// 
-			// label6
-			// 
-			this.label6.AutoSize = true;
-			this.label6.BackColor = System.Drawing.Color.Transparent;
-			this.label6.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-			this.label6.Location = new System.Drawing.Point(48, 28);
-			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(25, 16);
-			this.label6.TabIndex = 41;
-			this.label6.Text = "高";
-			// 
-			// label15
-			// 
-			this.label15.AutoSize = true;
-			this.label15.BackColor = System.Drawing.Color.Transparent;
-			this.label15.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-			this.label15.Location = new System.Drawing.Point(48, 9);
-			this.label15.Name = "label15";
-			this.label15.Size = new System.Drawing.Size(25, 16);
-			this.label15.TabIndex = 40;
-			this.label15.Text = "幅";
-			// 
-			// label8
-			// 
-			this.label8.AutoSize = true;
-			this.label8.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-			this.label8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.label8.Font = new System.Drawing.Font("MS UI Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-			this.label8.Location = new System.Drawing.Point(285, 16);
-			this.label8.Name = "label8";
-			this.label8.Size = new System.Drawing.Size(48, 15);
-			this.label8.TabIndex = 42;
-			this.label8.Text = "PicBox";
-			// 
-			// label10
-			// 
-			this.label10.AutoSize = true;
-			this.label10.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-			this.label10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.label10.Font = new System.Drawing.Font("MS UI Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-			this.label10.Location = new System.Drawing.Point(589, 15);
-			this.label10.Name = "label10";
-			this.label10.Size = new System.Drawing.Size(56, 15);
-			this.label10.TabIndex = 43;
-			this.label10.Text = "オフセット";
-			// 
-			// lblOffstFrtY
-			// 
-			this.lblOffstFrtY.AutoSize = true;
-			this.lblOffstFrtY.BackColor = System.Drawing.Color.MediumTurquoise;
-			this.lblOffstFrtY.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.lblOffstFrtY.Font = new System.Drawing.Font("MS UI Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-			this.lblOffstFrtY.Location = new System.Drawing.Point(651, 29);
-			this.lblOffstFrtY.MaximumSize = new System.Drawing.Size(45, 15);
-			this.lblOffstFrtY.MinimumSize = new System.Drawing.Size(45, 0);
-			this.lblOffstFrtY.Name = "lblOffstFrtY";
-			this.lblOffstFrtY.Size = new System.Drawing.Size(45, 15);
-			this.lblOffstFrtY.TabIndex = 45;
-			this.lblOffstFrtY.Text = "ofstY";
-			// 
-			// lblOffstFrtX
-			// 
-			this.lblOffstFrtX.AutoSize = true;
-			this.lblOffstFrtX.BackColor = System.Drawing.Color.MediumTurquoise;
-			this.lblOffstFrtX.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.lblOffstFrtX.Font = new System.Drawing.Font("MS UI Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-			this.lblOffstFrtX.Location = new System.Drawing.Point(651, 4);
-			this.lblOffstFrtX.MaximumSize = new System.Drawing.Size(45, 15);
-			this.lblOffstFrtX.MinimumSize = new System.Drawing.Size(45, 0);
-			this.lblOffstFrtX.Name = "lblOffstFrtX";
-			this.lblOffstFrtX.Size = new System.Drawing.Size(45, 15);
-			this.lblOffstFrtX.TabIndex = 44;
-			this.lblOffstFrtX.Text = "ofstX";
-			// 
-			// label16
-			// 
-			this.label16.AutoSize = true;
-			this.label16.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-			this.label16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.label16.Font = new System.Drawing.Font("MS UI Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-			this.label16.Location = new System.Drawing.Point(722, 15);
-			this.label16.Name = "label16";
-			this.label16.Size = new System.Drawing.Size(35, 15);
-			this.label16.TabIndex = 46;
-			this.label16.Text = "縮尺";
-			// 
-			// label17
-			// 
-			this.label17.AutoSize = true;
-			this.label17.Location = new System.Drawing.Point(703, 24);
-			this.label17.Name = "label17";
-			this.label17.Size = new System.Drawing.Size(41, 12);
-			this.label17.TabIndex = 2;
-			this.label17.Text = "label17";
-			// 
-			// label19
-			// 
-			this.label19.AutoSize = true;
-			this.label19.Location = new System.Drawing.Point(1387, 24);
-			this.label19.Name = "label19";
-			this.label19.Size = new System.Drawing.Size(41, 12);
-			this.label19.TabIndex = 3;
-			this.label19.Text = "label19";
-			// 
-			// label25
-			// 
-			this.label25.AutoSize = true;
-			this.label25.Location = new System.Drawing.Point(33, 639);
-			this.label25.Name = "label25";
-			this.label25.Size = new System.Drawing.Size(41, 12);
-			this.label25.TabIndex = 4;
-			this.label25.Text = "label25";
-			// 
-			// label26
-			// 
-			this.label26.AutoSize = true;
-			this.label26.Location = new System.Drawing.Point(33, 12);
-			this.label26.Name = "label26";
-			this.label26.Size = new System.Drawing.Size(41, 12);
-			this.label26.TabIndex = 5;
-			this.label26.Text = "label26";
-			// 
 			// Form1
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1011,6 +1024,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
 			this.splitContainer1.ResumeLayout(false);
 			this.splitContainer2.Panel1.ResumeLayout(false);
+			this.splitContainer2.Panel1.PerformLayout();
 			this.splitContainer2.Panel2.ResumeLayout(false);
 			this.splitContainer2.Panel2.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
@@ -1098,6 +1112,7 @@
 		private System.Windows.Forms.Label label17;
 		private System.Windows.Forms.Label label26;
 		private System.Windows.Forms.Label label25;
+		private System.Windows.Forms.Label label27;
     }
 }
 
