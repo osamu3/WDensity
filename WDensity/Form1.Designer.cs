@@ -25,7 +25,7 @@
         public void InitializeComponent() {
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
 			this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-			this.label27 = new System.Windows.Forms.Label();
+			this.button1 = new System.Windows.Forms.Button();
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.label16 = new System.Windows.Forms.Label();
 			this.lblOffstFrtY = new System.Windows.Forms.Label();
@@ -74,7 +74,7 @@
 			this.label13 = new System.Windows.Forms.Label();
 			this.lblVrtBrBckMoveV = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
-			this.button1 = new System.Windows.Forms.Button();
+			this.label27 = new System.Windows.Forms.Label();
 			this.picBxFrt = new System.Windows.Forms.PictureBox();
 			this.picBxBck = new System.Windows.Forms.PictureBox();
 			this.label19 = new System.Windows.Forms.Label();
@@ -141,10 +141,10 @@
 			// 
 			this.splitContainer2.Panel1.AutoScroll = true;
 			this.splitContainer2.Panel1.BackColor = System.Drawing.Color.Blue;
-			this.splitContainer2.Panel1.Controls.Add(this.label27);
+			this.splitContainer2.Panel1.Controls.Add(this.button1);
 			this.splitContainer2.Panel1.Controls.Add(this.panel2);
 			this.splitContainer2.Panel1.Controls.Add(this.panel1);
-			this.splitContainer2.Panel1.Controls.Add(this.button1);
+			this.splitContainer2.Panel1.Controls.Add(this.label27);
 			this.splitContainer2.Panel1.Controls.Add(this.picBxFrt);
 			this.splitContainer2.Panel1.Controls.Add(this.picBxBck);
 			this.splitContainer2.Panel1.Font = new System.Drawing.Font("MS UI Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
@@ -160,15 +160,15 @@
 			this.splitContainer2.SplitterWidth = 6;
 			this.splitContainer2.TabIndex = 0;
 			// 
-			// label27
+			// button1
 			// 
-			this.label27.AutoSize = true;
-			this.label27.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-			this.label27.Location = new System.Drawing.Point(321, 80);
-			this.label27.Name = "label27";
-			this.label27.Size = new System.Drawing.Size(85, 24);
-			this.label27.TabIndex = 41;
-			this.label27.Text = "初期値";
+			this.button1.Location = new System.Drawing.Point(10, 65);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(75, 23);
+			this.button1.TabIndex = 3;
+			this.button1.Text = "button1";
+			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.button1_Click);
 			// 
 			// panel2
 			// 
@@ -197,7 +197,7 @@
 			this.panel2.Controls.Add(this.label11);
 			this.panel2.Controls.Add(this.lblLoadFrtImgH);
 			this.panel2.Controls.Add(this.label5);
-			this.panel2.Location = new System.Drawing.Point(854, 0);
+			this.panel2.Location = new System.Drawing.Point(623, 4);
 			this.panel2.Name = "panel2";
 			this.panel2.Size = new System.Drawing.Size(795, 57);
 			this.panel2.TabIndex = 40;
@@ -526,7 +526,7 @@
 			this.panel1.Controls.Add(this.label13);
 			this.panel1.Controls.Add(this.lblVrtBrBckMoveV);
 			this.panel1.Controls.Add(this.label1);
-			this.panel1.Location = new System.Drawing.Point(12, 2);
+			this.panel1.Location = new System.Drawing.Point(63, 94);
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(836, 44);
 			this.panel1.TabIndex = 39;
@@ -840,31 +840,33 @@
 			this.label1.TabIndex = 4;
 			this.label1.Text = "PicBox";
 			// 
-			// button1
+			// label27
 			// 
-			this.button1.Location = new System.Drawing.Point(12, 53);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(75, 23);
-			this.button1.TabIndex = 3;
-			this.button1.Text = "button1";
-			this.button1.UseVisualStyleBackColor = true;
-			this.button1.Click += new System.EventHandler(this.button1_Click);
+			this.label27.AutoSize = true;
+			this.label27.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.label27.Location = new System.Drawing.Point(335, 162);
+			this.label27.Name = "label27";
+			this.label27.Size = new System.Drawing.Size(85, 24);
+			this.label27.TabIndex = 41;
+			this.label27.Text = "初期値";
 			// 
 			// picBxFrt
 			// 
-			this.picBxFrt.Location = new System.Drawing.Point(25, 312);
+			this.picBxFrt.BackColor = System.Drawing.Color.DodgerBlue;
+			this.picBxFrt.Location = new System.Drawing.Point(475, 324);
 			this.picBxFrt.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
 			this.picBxFrt.Name = "picBxFrt";
-			this.picBxFrt.Size = new System.Drawing.Size(325, 238);
+			this.picBxFrt.Size = new System.Drawing.Size(169, 88);
 			this.picBxFrt.TabIndex = 2;
 			this.picBxFrt.TabStop = false;
 			// 
 			// picBxBck
 			// 
-			this.picBxBck.Location = new System.Drawing.Point(10, 0);
+			this.picBxBck.BackColor = System.Drawing.Color.Red;
+			this.picBxBck.Location = new System.Drawing.Point(0, 0);
 			this.picBxBck.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
 			this.picBxBck.Name = "picBxBck";
-			this.picBxBck.Size = new System.Drawing.Size(1963, 789);
+			this.picBxBck.Size = new System.Drawing.Size(524, 488);
 			this.picBxBck.TabIndex = 1;
 			this.picBxBck.TabStop = false;
 			// 

@@ -65,20 +65,34 @@ namespace WDensity {
 			//画像を読み込む
 			_LoadedBckImgObj = Image.FromFile("house.jpg");
 			_LoadedFrtImgObj = Image.FromFile("house.jpg");
+			picBxBck.Size = _LoadedBckImgObj.Size;
+			picBxBck.Width = 150;
+			picBxBck.Height = 1293;
+
+
 
 			//描画先(canvas)のビットマップオブジェクトの実体を作成
-			_CanvasBck = new Bitmap(_LoadedBckImgObj.Width, _LoadedBckImgObj.Height);
-			_CanvasFrt = new Bitmap(_LoadedFrtImgObj.Width, _LoadedFrtImgObj.Height);
+//			_CanvasBck = new Bitmap(_LoadedBckImgObj.Width, _LoadedBckImgObj.Height);
+_CanvasBck = new Bitmap(  _LoadedBckImgObj.Width, _LoadedBckImgObj.Height);
+_CanvasBck = new Bitmap(  1000, 193);
+//			_CanvasFrt = new Bitmap(_LoadedFrtImgObj.Width, _LoadedFrtImgObj.Height);
 			//カンバスの大きさをセットする為の読込画像の大きさ⇒∴ピクチャーボックスの大きさ！＝画像の大きさ
-			_CanvsRctBckImg = new Rectangle(0, 0, _LoadedBckImgObj.Width, _LoadedBckImgObj.Height);
-			_CanvsRctFrtImg = new Rectangle(0, 0, _LoadedFrtImgObj.Width, _LoadedFrtImgObj.Height);
+//			_CanvsRctBckImg = new Rectangle(0, 0, _LoadedBckImgObj.Width, _LoadedBckImgObj.Height);
+//			_CanvsRctFrtImg = new Rectangle(0, 0, _LoadedFrtImgObj.Width, _LoadedFrtImgObj.Height);
 
 
-			_BckPicDrwPsOfstX = (_LoadedBckImgObj.Width - picBxBck.Width) / 2;
-			_BckPicDrwPsOfstY = (_LoadedBckImgObj.Height - picBxBck.Height) / 2;
-			_FrtPicDrwPsOfstX = (_LoadedFrtImgObj.Width - picBxFrt.Width) / 2;
-			_FrtPicDrwPsOfstY = (_LoadedFrtImgObj.Height - picBxFrt.Height) / 2;
+//			_BckPicDrwPsOfstX = (_LoadedBckImgObj.Width - picBxBck.Width) / 2;
+//			_BckPicDrwPsOfstY = (_LoadedBckImgObj.Height - picBxBck.Height) / 2;
+//			_FrtPicDrwPsOfstX = (_LoadedFrtImgObj.Width - picBxFrt.Width) / 2;
+//			_FrtPicDrwPsOfstY = (_LoadedFrtImgObj.Height - picBxFrt.Height) / 2;
 			//			zoomRatio = 1d;
+
+Graphics g = Graphics.FromImage(_CanvasBck);
+//g.Clear(Color.Black);
+g.DrawImage(_LoadedBckImgObj, 0, 0);//画像左よせ
+picBxBck.Image = _CanvasBck;
+//picBxBck.Image = _LoadedBckImgObj;
+			return;
 
 			#region　【画像の初期表示】読み込んだ画像の中心が、カンバスの中心になるよう描画
 			//　　　       〃　　　　　　　　　　(前景)画像　　　　　　〃
