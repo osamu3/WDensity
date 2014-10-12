@@ -41,73 +41,73 @@ namespace WDensity {
 		}
 		// cf:ref:数値の文字列化に際し、,（カンマ）区切りの空白右詰で表示している。
 		public void setVal(
-			int frtPicBxW = 0,		//前景：幅
-			int frtPicBxH = 0,		//前景：高
-			int hrzBrFrtMax = 0,	//水平バー前景Max
-			int vrtBrFrtMax = 0,	//垂直バー前景Max
-			int loadImgFrtW = 0,	//読込画像前景：幅
-			int loadImgFrtH = 0,	//読込画像前景：高
-			int canvsFrtW = 0,		//カンバス前景：幅
-			int canvsFrtH = 0,		//カンバス前景：高
-			int hrzBrFrtMoveV = 0,	//水平移動量：前景
-			int vrtBrFrtMoveV = 0,	//垂直移動量：前景
-			int offstFrtX = 0,		//オフセットX：前景
-			int offstFrtY =0,		//オフセットY：前景
+			int forePicBxW = 0,		//前景：幅
+			int forePicBxH = 0,		//前景：高
+			int hrzBrForeMax = 0,	//水平バー前景Max
+			int vrtBrForeMax = 0,	//垂直バー前景Max
+			int loadImgForeW = 0,	//読込画像前景：幅
+			int loadImgForeH = 0,	//読込画像前景：高
+			int canvsForeW = 0,		//カンバス前景：幅
+			int canvsForeH = 0,		//カンバス前景：高
+			int hrzBrForeMoveV = 9999,	//水平移動量：前景
+			int vrtBrForeMoveV = 0,	//垂直移動量：前景
+			int offstForeX = 0,		//オフセットX：前景
+			int offstForeY =0,		//オフセットY：前景
 
-			int bckPicBxW = 0,		//背景：幅
-			int bckPicBxH = 0,		//背景：高
-			int hrzBrBckMax = 0,	//水平バー背景Max
-			int vrtBrBckMax = 0,	//垂直バー背景Max
-			int loadImgBckW = 0,	//読込画像背景：幅
-			int loadImgBckH = 0,	//読込画像背景：高
-			int canvsBckW = 0,		//カンバス背景：幅
-			int canvsBckH = 0,		//カンバス背景：高
-			int hrzBrBckMoveV = 0,	//水平移動量：背景
-			int vrtBrBckMoveV = 0,	//垂直移動量：背景
-			int offstBckX =0,		//オフセットX：前景
-			int offstBckY =0		//オフセットY：前景
+			int backPicBxW = 0,		//背景：幅
+			int backPicBxH = 0,		//背景：高
+			int hrzBrBackMax = 0,	//水平バー背景Max
+			int vrtBrBackMax = 0,	//垂直バー背景Max
+			int loadImgBackW = 0,	//読込画像背景：幅
+			int loadImgBackH = 0,	//読込画像背景：高
+			int canvsBackW = 0,		//カンバス背景：幅
+			int canvsBackH = 0,		//カンバス背景：高
+			int hrzBrBackMoveV = 0,	//水平移動量：背景
+			int vrtBrBackMoveV = 0,	//垂直移動量：背景
+			int offstBackX =0,		//オフセットX：前景
+			int offstBackY =0		//オフセットY：前景
 		){
 			//背景
 			//ピクチャーボックスの大きさ(背景)
-			if (bckPicBxW != 0) form.lblBckPicBxW.Text = bckPicBxW.ToString("#,###").PadLeft(5);
-			if (bckPicBxH != 0) form.lblBckPicBxH.Text = bckPicBxH.ToString("#,###").PadLeft(5);
+			if (backPicBxW != 9999) form.lblBckPicBxW.Text = backPicBxW.ToString("#,##0").PadLeft(5);
+			if (backPicBxH != 9999) form.lblBckPicBxH.Text = backPicBxH.ToString("#,##0").PadLeft(5);
 
 			//トラックバーの最大値(背景)
-			if (hrzBrBckMax != 0) form.lblHrzBrBckMax.Text = hrzBrBckMax.ToString("#,###").PadLeft(5);
-			if (vrtBrBckMax != 0) form.lblVrtBrBckMax.Text = vrtBrBckMax.ToString("#,###").PadLeft(5);
+			if (hrzBrBackMax != 9999) form.lblHrzBrBckMax.Text = hrzBrBackMax.ToString("#,##0").PadLeft(5);
+			if (vrtBrBackMax != 9999) form.lblVrtBrBckMax.Text = vrtBrBackMax.ToString("#,##0").PadLeft(5);
 
 			//読込画像の大きさ(背景)
-			if (loadImgBckW != 0) form.lblLoadBckImgW.Text = loadImgBckW.ToString("#,###").PadLeft(5);
-			if (loadImgBckH != 0) form.lblLoadBckImgH.Text = loadImgBckH.ToString("#,###").PadLeft(5);
+			if (loadImgBackW != 9999) form.lblLoadBckImgW.Text = loadImgBackW.ToString("#,##0").PadLeft(5);
+			if (loadImgBackH != 9999) form.lblLoadBckImgH.Text = loadImgBackH.ToString("#,##0").PadLeft(5);
 
 			//カンバスの大きさ(背景)
-			if (canvsBckW != 0) form.lblCanvsBckW.Text = canvsBckW.ToString("#,###").PadLeft(5);
-			if (canvsBckH != 0) form.lblCanvsBckH.Text = canvsBckH.ToString("#,###").PadLeft(5);
+			if (canvsBackW != 9999) form.lblCanvsBckW.Text = canvsBackW.ToString("#,##0").PadLeft(5);
+			if (canvsBackH != 9999) form.lblCanvsBckH.Text = canvsBackH.ToString("#,##0").PadLeft(5);
 
 			//トラックバーの移動量(背景)
-			if (hrzBrBckMoveV != 0) form.lblHrzBrBckMoveV.Text = hrzBrBckMoveV.ToString("#,###").PadLeft(5);
-			if (vrtBrBckMoveV != 0) form.lblVrtBrBckMoveV.Text = vrtBrBckMoveV.ToString("#,###").PadLeft(5);
+			if (hrzBrBackMoveV != 9999) form.lblHrzBrBckMoveV.Text = hrzBrBackMoveV.ToString("#,##0").PadLeft(5);
+			if (vrtBrBackMoveV != 9999) form.lblVrtBrBckMoveV.Text = vrtBrBackMoveV.ToString("#,##0").PadLeft(5);
 
 			//オフセット量(背景)
-			if (offstBckX != 0) form.lblOffstBckX.Text = offstBckX.ToString("#,###").PadLeft(5);
-			if (offstBckY != 0) form.lblOffstBckY.Text = offstBckY.ToString("#,###").PadLeft(5);
+			if (offstBackX != 9999) form.lblOffstBckX.Text = offstBackX.ToString("#,##0").PadLeft(5);
+			if (offstBackY != 9999) form.lblOffstBckY.Text = offstBackY.ToString("#,##0").PadLeft(5);
 
 			//前景
 			//ピクチャーボックスの大きさ(前景)
-			if (frtPicBxW != 0) form.lblFrtPicBxW.Text = frtPicBxW.ToString("#,###").PadLeft(5);
-			if (frtPicBxH != 0) form.lblFrtPicBxH.Text = frtPicBxH.ToString("#,###").PadLeft(5);
+			if (forePicBxW != 9999) form.lblFrtPicBxW.Text = forePicBxW.ToString("#,##0").PadLeft(5);
+			if (forePicBxH != 9999) form.lblFrtPicBxH.Text = forePicBxH.ToString("#,##0").PadLeft(5);
 
-			if (hrzBrFrtMax != 0) form.lblHrzBrFrtMax.Text = hrzBrFrtMax.ToString("#,###").PadLeft(5);
-			if (vrtBrFrtMax != 0) form.lblVrtBrFrtMax.Text = vrtBrFrtMax.ToString("#,###").PadLeft(5);
+			if (hrzBrForeMax != 9999) form.lblHrzBrFrtMax.Text = hrzBrForeMax.ToString("#,##0").PadLeft(5);
+			if (vrtBrForeMax != 9999) form.lblVrtBrFrtMax.Text = vrtBrForeMax.ToString("#,##0").PadLeft(5);
 
-			if (loadImgFrtW != 0) form.lblLoadFrtImgW.Text = loadImgFrtW.ToString("#,###").PadLeft(5);
-			if (loadImgFrtH != 0) form.lblLoadFrtImgH.Text = loadImgFrtH.ToString("#,###").PadLeft(5);
+			if (loadImgForeW != 9999) form.lblLoadFrtImgW.Text = loadImgForeW.ToString("#,##0").PadLeft(5);
+			if (loadImgForeH != 9999) form.lblLoadFrtImgH.Text = loadImgForeH.ToString("#,##0").PadLeft(5);
 
-			if (canvsFrtW != 0) form.lblCanvsFrtW.Text = canvsFrtW.ToString("#,###").PadLeft(5);
-			if (canvsFrtH != 0) form.lblCanvsFrtH.Text = canvsFrtH.ToString("#,###").PadLeft(5);
+			if (canvsForeW != 9999) form.lblCanvsFrtW.Text = canvsForeW.ToString("#,##0").PadLeft(5);
+			if (canvsForeH != 9999) form.lblCanvsFrtH.Text = canvsForeH.ToString("#,##0").PadLeft(5);
 
-			if (hrzBrFrtMoveV != 0) form.lblHrzBrFrtMoveV.Text = hrzBrFrtMoveV.ToString("#,###").PadLeft(5);
-			if (vrtBrFrtMoveV != 0) form.lblVrtBrFrtMoveV.Text = vrtBrFrtMoveV.ToString("#,###").PadLeft(5);
+			if (hrzBrForeMoveV != 9999) form.lblHrzBrFrtMoveV.Text = hrzBrForeMoveV.ToString("#,##0").PadLeft(5);
+			if (vrtBrForeMoveV != 9999) form.lblVrtBrFrtMoveV.Text = vrtBrForeMoveV.ToString("#,##0").PadLeft(5);
 		}
 	}
 
