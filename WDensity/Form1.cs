@@ -69,6 +69,11 @@ namespace WDensity {
 			//描画先(canvas)のビットマップオブジェクトの実体を作成
 			_CanvasBck = new Bitmap(_LoadedBckImgObj.Width, _LoadedBckImgObj.Height);
 			_CanvasFrt = new Bitmap(_LoadedFrtImgObj.Width, _LoadedFrtImgObj.Height);
+
+			//画像表示用カンバスと読み込み画像のDPIを同じにする。
+			_CanvasBck.SetResolution(_LoadedBckImgObj.HorizontalResolution, _LoadedBckImgObj.VerticalResolution);
+			_CanvasFrt.SetResolution(_LoadedFrtImgObj.HorizontalResolution, _LoadedFrtImgObj.VerticalResolution);
+
 			//カンバスの大きさをセットする為の読込画像の大きさ⇒∴ピクチャーボックスの大きさ！＝画像の大きさ
 			_CanvsRctBckImg = new Rectangle(0, 0, _LoadedBckImgObj.Width, _LoadedBckImgObj.Height);
 			_CanvsRctFrtImg = new Rectangle(0, 0, _LoadedFrtImgObj.Width, _LoadedFrtImgObj.Height);
@@ -79,7 +84,7 @@ namespace WDensity {
 			_FrtPicDrwPsOfstX = (_LoadedFrtImgObj.Width - picBxFrt.Width) / 2;
 			_FrtPicDrwPsOfstY = (_LoadedFrtImgObj.Height - picBxFrt.Height) / 2;
 			//			zoomRatio = 1d;
-
+return;
 			#region　【画像の初期表示】読み込んだ画像の中心が、カンバスの中心になるよう描画
 			//　　　       〃　　　　　　　　　　(前景)画像　　　　　　〃
 			drawPic2Center(picBxFrt, _CanvasFrt, _FrtPicDrwPsOfstX, _FrtPicDrwPsOfstY, _LoadedFrtImgObj, _CanvsRctFrtImg);
