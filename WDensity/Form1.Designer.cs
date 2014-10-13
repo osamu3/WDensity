@@ -249,7 +249,6 @@
 			this.numericUpDown3.Size = new System.Drawing.Size(68, 20);
 			this.numericUpDown3.TabIndex = 50;
 			this.numericUpDown3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			this.numericUpDown3.ValueChanged += new System.EventHandler(this.numericUpDown3_ValueChanged);
 			// 
 			// label19
 			// 
@@ -1024,6 +1023,9 @@
 			this.picBxBack.Size = new System.Drawing.Size(1596, 845);
 			this.picBxBack.TabIndex = 1;
 			this.picBxBack.TabStop = false;
+			this.picBxBack.MouseDown += new System.Windows.Forms.MouseEventHandler(this.picBxBack_MouseDown);
+			this.picBxBack.MouseMove += new System.Windows.Forms.MouseEventHandler(this.picBxBack_MouseMove);
+			this.picBxBack.MouseUp += new System.Windows.Forms.MouseEventHandler(this.picBxBack_MouseUp);
 			// 
 			// trckBrZoom
 			// 

@@ -19,46 +19,56 @@ namespace WDensity {
 
 
 	public partial class Form1 : Form {
+		#region 広域変数宣言（描画オブジェクト関係）
 		//オブジェクトの宣言のみ(実体はイニシャルメソッドの中で作成)
 		private static Bitmap _CanvasFore;//(前景)描画先(canvas)とするビットマップオブジェクトの宣言
 		private static Bitmap _CanvasBack;//(背景)描画先(canvas)とするビットマップオブジェクトの宣言
 		private static Image _LoadedForeImgObj;//(前景)画像読込先のイメージオブジェクトの宣言
 		private static Image _LoadedBackImgObj;//(背景)画像読込先のイメージオブジェクトの宣言
+		#endregion
 
-
+		#region 広域変数：ズーム変数
 		public static float _ZoomRate = 1F;//倍率
+		private static int _TrckBrZoomInitVal; //　　縮尺　　　　の初期値
+		#endregion 
 		//画像の描画領域(大きさ)と位置を保持する変数⇒領域を拡大・縮小することで画像を拡大・縮小できる。
-		private static Rectangle _CanvsRctForeImg = new Rectangle(0, 0, 0, 0);//(前景)画像用
-		private static Rectangle _CanvsRctBackImg = new Rectangle(0, 0, 0, 0);//(背景)画像用変数
+//		private static Rectangle _CanvsRctForeImg = new Rectangle(0, 0, 0, 0);//(前景)画像用
+		//		private static Rectangle _CanvsRctBackImg = new Rectangle(0, 0, 0, 0);//(背景)画像用変数
 
+		#region 広域変数：描画位置変数
 		private static float _ForePicDrwPsOfstX;//(前景)画像の中心＝(前景)描画キャンバスの中心となる位置へのオフセット
 		private static float _ForePicDrwPsOfstY;
 		private static float _BackPicDrwPsOfstX;//(背景)画像の中心＝(背景)描画キャンバスの中心となる位置へのオフセット
 		private static float _BackPicDrwPsOfstY;
 		private static int _ForePicInitWidth;
 		private static int _ForePicInitHeigt;
+		#endregion
 
-
-		private static　int _TrckBrZoomInitVal; //　　縮尺　　　　の初期値
-
+		#region 広域変数：トラックバー変数
 		private int _trckBrHrzMaxVal;  //(前景)移動用の水平移動トラックバーの最大値
 		private int _trckBrVrtMaxVal;  //(前景)移動用の垂直移動トラックバーの最大値
 		private int _trckBrHrzInitVal; //(前景)移動用の水平移動トラックバーの初期値
 		private int _trckBrVrtInitVal; //(前景)移動用の垂直移動トラックバーの初期値
 
+		
 //		private int _trckBrHrzBackInitVal; //(背景)移動用の水平移動トラックバーの初期値
 //		private int _trckBrVrtBackInitVal; //(背景)移動用の垂直移動トラックバーの初期値
 //		private int _trckBrHrzBackMaxVal;  //(背景)移動用の水平移動トラックバーの最大値
-//		private int _trckBrVrtBackMaxVal;  //(背景)移動用の垂直移動トラックバーの最大値
+		//		private int _trckBrVrtBackMaxVal;  //(背景)移動用の垂直移動トラックバーの最大値
+		#endregion
+
 		private DbgShowVal dbgShowVal;//デバッグ用のクラス
 
 		public enum _EdtTyp : int {
-			Horizontal = 1, Vertical = 2, Zoom = 3
+			Horizontal = 1, Vertical = 2, Zoom = 3,Move = 4
 		}
 
-		private Point _picBxMouseDwnPt;
-		private Boolean _picBxMouseDwnFlg = false;
-
+		#region 広域変数：マウスポインター変数
+		private Point _picBxForeMouseDwnPt;
+		private Boolean _picBxForeMouseDwnFlg = false;
+		private Point _picBxBackMouseDwnPt;
+		private Boolean _picBxBackMouseDwnFlg = false;
+		#endregion
 
 		public Form1() {
 			InitializeComponent();
@@ -76,8 +86,8 @@ namespace WDensity {
 
 			//画像表示
 			drawPic(picBxFore, _LoadedForeImgObj, ref _CanvasFore, "Fore");
-			drawPic(picBxBack, _LoadedBackImgObj, ref _CanvasBack,"Back");
 
+			drawPic(picBxBack, _LoadedBackImgObj, ref _CanvasBack,"Back");
 			_ForePicInitWidth = picBxFore.Width;
 			_ForePicInitHeigt = picBxFore.Height;
 
@@ -168,7 +178,7 @@ namespace WDensity {
 					_BackPicDrwPsOfstX = -loadedImg.Width / 2 + picBox.Width / 2;
 					_BackPicDrwPsOfstY = -loadedImg.Height / 2 + picBox.Height / 2;
 					//画像の中心がカンバスの中心に表示されるよう変換行列をセット
-					g.TranslateTransform(_BackPicDrwPsOfstX, _BackPicDrwPsOfstY);
+//					g.TranslateTransform(_BackPicDrwPsOfstX, _BackPicDrwPsOfstY);
 					g.DrawImage(loadedImg, 0, 0);
 					//PictureBoxに表示する
 					picBox.Image = canvas;
@@ -208,6 +218,8 @@ namespace WDensity {
 			g.Dispose();
 		}
 
+		/// <summary>トラックバーイベント⇒ 画像【移動】</summary>
+		/// 
 		private void trckBr_Scroll(object sender, EventArgs e) {
 			#region 画像【水平移動】トラックバーイベント
 				if (((TrackBar)sender).Name.ToString() == "trckBrHrz") {
@@ -218,7 +230,8 @@ namespace WDensity {
 								_EdtTyp.Horizontal,					//水平移動
 								_ForePicDrwPsOfstX,					//画像中心表示のためのオフセット
 								_ForePicDrwPsOfstY,					//              〃
-								_trckBrHrzInitVal - trckBrHrz.Value	//スライダーの移動量
+								_trckBrHrzInitVal - trckBrHrz.Value,//スライダーの水平移動量
+								0									//		〃    垂直移動量
 							);
 				}
 			#endregion
@@ -232,7 +245,8 @@ namespace WDensity {
 							_EdtTyp.Vertical,					//水平移動
 							_ForePicDrwPsOfstX,					//画像中心表示のためのオフセット
 							_ForePicDrwPsOfstY,					//              〃
-							_trckBrVrtInitVal - trckBrVrt.Value	//スライダーの移動量
+							0,									//スライダーの水平移動量
+							_trckBrVrtInitVal - trckBrVrt.Value	//		〃    垂直移動量
 						);
 			}
 			#endregion
@@ -243,7 +257,7 @@ namespace WDensity {
 		/// <param name="canvas">画像描画先キャンバス</param>
 		/// <param name="loadedImg">ファイルから読み込まれた画像</param>
 		/// <param name="edtTyp">水平or垂直移動</param>
-		private void movePicture(PictureBox picBox, Bitmap canvas, Image loadedImg, _EdtTyp edtTyp, float ofSetX, float ofSetY, int mvVal) {
+		private void movePicture(PictureBox picBox, Bitmap canvas, Image loadedImg, _EdtTyp edtTyp, float ofSetX, float ofSetY, int mvHrzVal,int mvVrtVal) {
 			Graphics g = Graphics.FromImage(canvas);
 
 			g.Clear(Color.Black);//一旦画像クリア
@@ -252,13 +266,13 @@ namespace WDensity {
 			#region 画像【水平移動】
 			if (edtTyp == _EdtTyp.Horizontal) {
 				//ピクチャボックスの中心＝カンバスの中心＋スライダー移動量　となるよう、変換行列をセット
-				g.TranslateTransform(ofSetX+mvVal, ofSetY);
+				g.TranslateTransform(ofSetX+mvHrzVal, ofSetY+mvVrtVal);
 				g.DrawImage(loadedImg,0,0);
 				//PictureBox1に表示する
 				picBox.Image = canvas;
 				#region デバッグ出力
 					#if DEBUG
-						dbgShowVal.setVal(hrzBrForeMoveV: mvVal);
+						dbgShowVal.setVal(hrzBrForeMoveV: mvHrzVal);
 					#endif
 				#endregion
 			}
@@ -267,14 +281,29 @@ namespace WDensity {
 			#region 画像【垂直移動】
 			if (edtTyp == _EdtTyp.Vertical) {
 				//ピクチャボックスの中心＝カンバスの中心＋スライダー移動量　となるよう、変換行列をセット
-				g.TranslateTransform(ofSetX, ofSetY + mvVal);
+				g.TranslateTransform(ofSetX+mvHrzVal, ofSetY + mvVrtVal);
 				g.DrawImage(loadedImg, 0, 0);//グラフィックオブジェクトに画像を描画
 				//PictureBox1に表示する
 				picBox.Image = canvas;
 				#region デバッグ出力
 					#if DEBUG
-						dbgShowVal.setVal(vrtBrForeMoveV: mvVal);
+						dbgShowVal.setVal(vrtBrForeMoveV: mvVrtVal);
 					#endif
+				#endregion
+			}
+			#endregion
+			#region 画像【上下左右移動】
+			if (edtTyp == _EdtTyp.Move) {
+				こ０こから
+				//ピクチャボックスの中心＝カンバスの中心＋スライダー移動量　となるよう、変換行列をセット
+				g.TranslateTransform(ofSetX + mvHrzVal, ofSetY + mvVrtVal);
+				g.DrawImage(loadedImg, 0, 0);//グラフィックオブジェクトに画像を描画
+				//PictureBox1に表示する
+				picBox.Image = canvas;
+				#region デバッグ出力
+#if DEBUG
+				dbgShowVal.setVal(vrtBrForeMoveV: mvVrtVal);
+#endif
 				#endregion
 			}
 			#endregion
@@ -311,23 +340,31 @@ namespace WDensity {
 			g.Dispose();
 		}
 
+		#region 前景画像マウスダウン
 		private void picBxFore_MouseDown(object sender, MouseEventArgs e) {
 			if ((e.Button & MouseButtons.Left) == MouseButtons.Left) {
 				//位置を記憶する
-				_picBxMouseDwnFlg = true;
-				_picBxMouseDwnPt = new Point(e.X, e.Y);
+				_picBxForeMouseDwnFlg = true;
+				_picBxForeMouseDwnPt = new Point(e.X, e.Y);
 			}
-		}
+		} 
+		#endregion
 
+		#region 前景画像マウスムーブ
 		private void picBxFore_MouseMove(object sender, MouseEventArgs e) {
-			if (_picBxMouseDwnFlg)
-				picBxFore.Location = new Point(picBxFore.Location.X + e.X - _picBxMouseDwnPt.X,
-											picBxFore.Location.Y + e.Y - _picBxMouseDwnPt.Y);
+			if (_picBxForeMouseDwnFlg)
+				picBxFore.Location = new Point(picBxFore.Location.X + e.X - _picBxForeMouseDwnPt.X,
+											picBxFore.Location.Y + e.Y - _picBxForeMouseDwnPt.Y);
 		}
+		
+		#endregion
 
+		#region 前景画像マウスアップ
 		private void picBxFore_MouseUp(object sender, MouseEventArgs e) {
-			_picBxMouseDwnFlg = false;
+			_picBxForeMouseDwnFlg = false;
 		}
+		
+		#endregion
 
 		private void numericUpDown1_ValueChanged(object sender, EventArgs e) {
 			picBxFore.Width = _ForePicInitWidth + (int)((NumericUpDown)sender).Value;
@@ -337,8 +374,36 @@ namespace WDensity {
 			picBxFore.Height = _ForePicInitHeigt + (int)((NumericUpDown)sender).Value;
 		}
 
-		private void numericUpDown3_ValueChanged(object sender, EventArgs e) {
-
+		/// <summary>背景画像：マウスダウン </summary>
+		///
+		private void picBxBack_MouseDown(object sender, MouseEventArgs e) {
+			if ((e.Button & MouseButtons.Left) == MouseButtons.Left) {
+				//位置を記憶する
+				_picBxBackMouseDwnFlg = true;
+				_picBxBackMouseDwnPt = new Point(e.X, e.Y);
+			}
 		}
+
+		/// <summary>背景画像：マウスムーブ </summary>
+		///
+		private void picBxBack_MouseMove(object sender, MouseEventArgs e) {
+			if (_picBxBackMouseDwnFlg)
+				//背景画像の移動
+				movePicture(picBxBack,							//背景画像ピクチャーボックス 
+					_CanvasBack,						//描画先カンバス
+					_LoadedBackImgObj,					//読み込んだ画像
+					_EdtTyp.Move,					//編集タイプ：画像移動
+					_BackPicDrwPsOfstX,				//画像中心表示のためのオフセット
+					_BackPicDrwPsOfstY,					//              〃
+					e.X - _picBxBackMouseDwnPt.X,	//画像水平移動量
+					e.Y - _picBxBackMouseDwnPt.Y	//画像水平移動量
+				);
+		}
+
+		/// <summary>背景画像：マウスアップ </summary>
+		///
+		private void picBxBack_MouseUp(object sender, MouseEventArgs e) {
+			_picBxBackMouseDwnFlg = false;
+		} 
 	}
 }
