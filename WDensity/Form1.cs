@@ -40,8 +40,12 @@ namespace WDensity {
 		private static float _ForePicDrwPsOfstY;
 		private static float _BackPicDrwPsOfstX;//(背景)画像の中心＝(背景)描画キャンバスの中心となる位置へのオフセット
 		private static float _BackPicDrwPsOfstY;
-		private static int _ForePicInitWidth;
-		private static int _ForePicInitHeigt;
+//kokokra		画像移動量積算
+		#endregion
+
+		#region 広域変数：画像サイズ
+		private static int _ForePicInitSizemmmWidth;
+		private static int _ForePicIniSizeLLLtHeigt;
 		#endregion
 
 		#region 広域変数：トラックバー変数
@@ -81,8 +85,8 @@ namespace WDensity {
 			//			if (canvas != null) canvas.Dispose();
 
 			//画像を読み込む
-			_LoadedForeImgObj = Image.FromFile("ForeGround.jpg");
-			_LoadedBackImgObj = Image.FromFile("BackGround.jpg");
+			_LoadedForeImgObj = Image.FromFile("Traget.jpg");
+			_LoadedBackImgObj = Image.FromFile("House.jpg");
 
 			//画像表示
 			drawPic(picBxFore, _LoadedForeImgObj, ref _CanvasFore, "Fore");
@@ -257,7 +261,8 @@ namespace WDensity {
 		/// <param name="canvas">画像描画先キャンバス</param>
 		/// <param name="loadedImg">ファイルから読み込まれた画像</param>
 		/// <param name="edtTyp">水平or垂直移動</param>
-		private void movePicture(PictureBox picBox, Bitmap canvas, Image loadedImg, _EdtTyp edtTyp, float ofSetX, float ofSetY, int mvHrzVal,int mvVrtVal) {
+		private void movePicture(PictureBox picBox, Bitmap canvas, Image loadedImg, _EdtTyp edtTyp,
+								float ofSetX, float ofSetY, int mvHrzVal,int mvVrtVal) {
 			Graphics g = Graphics.FromImage(canvas);
 
 			g.Clear(Color.Black);//一旦画像クリア
@@ -294,7 +299,7 @@ namespace WDensity {
 			#endregion
 			#region 画像【上下左右移動】
 			if (edtTyp == _EdtTyp.Move) {
-				こ０こから
+//				こ０こから
 				//ピクチャボックスの中心＝カンバスの中心＋スライダー移動量　となるよう、変換行列をセット
 				g.TranslateTransform(ofSetX + mvHrzVal, ofSetY + mvVrtVal);
 				g.DrawImage(loadedImg, 0, 0);//グラフィックオブジェクトに画像を描画
@@ -302,7 +307,7 @@ namespace WDensity {
 				picBox.Image = canvas;
 				#region デバッグ出力
 #if DEBUG
-				dbgShowVal.setVal(vrtBrForeMoveV: mvVrtVal);
+				dbgShowVal.setVal(hrzBrBackMoveV: mvHrzVal,vrtBrBackMoveV: mvVrtVal);
 #endif
 				#endregion
 			}
