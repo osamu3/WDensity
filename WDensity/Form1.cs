@@ -42,9 +42,6 @@ namespace WDensity {
 		private static float _BackPicDrwPsOfstY;
 		private static int _ForePicInitWidth;
 		private static int _ForePicInitHeigt;
-		private int _picBxBackMvXBk;		//前回の前景画像移動量
-		private int _picBxBackMvYBk;	//前回の背景画像移動量
-
 		#endregion
 
 		#region 広域変数：トラックバー変数
@@ -67,11 +64,9 @@ namespace WDensity {
 		}
 
 		#region 広域変数：マウスポインター変数
-		private Point _picBxForeMouseDwnPt;				//前景画像マウスダウン：ドラッグ開始位置
-		private Point _picBxForeMouseMvStrtPt;			//マウス移動量計算起点（ドラッグ開始時はマウスダウン点、２回目以降は前回終点）
+		private Point _picBxForeMouseDwnPt;
 		private Boolean _picBxForeMouseDwnFlg = false;
-		private Point _picBxBackMouseDwnPt;				//背景画像マウスダウン位置
-		private Point _picBxBackMouseMvStrtPt;			//マウス移動量計算起点（ドラッグ開始時はマウスダウン点、２回目以降は前回終点）
+		private Point _picBxBackMouseDwnPt;
 		private Boolean _picBxBackMouseDwnFlg = false;
 		#endregion
 
@@ -190,12 +185,6 @@ namespace WDensity {
 				}	
 			#endregion
 			g.Dispose();
-			#region デバッグ出力
-#if DEBUG
-			dbgShowVal.setVal(offstBackX:(int)_BackPicDrwPsOfstX,offstBackY:(int)_BackPicDrwPsOfstY);
-#endif
-			#endregion
-
 		}
 
 		/// <summary>ズームバーイベント⇒ 画像【縮尺】</summary>
@@ -303,20 +292,19 @@ namespace WDensity {
 				#endregion
 			}
 			#endregion
-	
 			#region 画像【上下左右移動】
 			if (edtTyp == _EdtTyp.Move) {
-//				こ０こから
+				こ０こから
 				//ピクチャボックスの中心＝カンバスの中心＋スライダー移動量　となるよう、変換行列をセット
 				g.TranslateTransform(ofSetX + mvHrzVal, ofSetY + mvVrtVal);
 				g.DrawImage(loadedImg, 0, 0);//グラフィックオブジェクトに画像を描画
 				//PictureBox1に表示する
 				picBox.Image = canvas;
-#region デバッグ出力
+				#region デバッグ出力
 #if DEBUG
-//			dbgShowVal.setVal(offstBackX: (int)ofSetX, offstBackY: (int)ofSetY, msMoveVY: mvVrtVal, msMoveVX: mvHrzVal);
+				dbgShowVal.setVal(vrtBrForeMoveV: mvVrtVal);
 #endif
-#endregion
+				#endregion
 			}
 			#endregion
 
@@ -368,6 +356,7 @@ namespace WDensity {
 				picBxFore.Location = new Point(picBxFore.Location.X + e.X - _picBxForeMouseDwnPt.X,
 											picBxFore.Location.Y + e.Y - _picBxForeMouseDwnPt.Y);
 		}
+		
 		#endregion
 
 		#region 前景画像マウスアップ
@@ -392,139 +381,29 @@ namespace WDensity {
 				//位置を記憶する
 				_picBxBackMouseDwnFlg = true;
 				_picBxBackMouseDwnPt = new Point(e.X, e.Y);
-#region デバッグ出力
-#if DEBUG
-				dbgShowVal.setVal(msDwnPtX:_picBxBackMouseDwnPt.X, msDwnPtY: _picBxBackMouseDwnPt.Y,
-					msPtX: e.X, msPtY: e.Y,		msMoveVX:0, msMoveVY:0
-					);
-#endif
-#endregion
-
-
-
 			}
+		}
+
+		/// <summary>背景画像：マウスムーブ </summary>
+		///
+		private void picBxBack_MouseMove(object sender, MouseEventArgs e) {
+			if (_picBxBackMouseDwnFlg)
+				//背景画像の移動
+				movePicture(picBxBack,							//背景画像ピクチャーボックス 
+					_CanvasBack,						//描画先カンバス
+					_LoadedBackImgObj,					//読み込んだ画像
+					_EdtTyp.Move,					//編集タイプ：画像移動
+					_BackPicDrwPsOfstX,				//画像中心表示のためのオフセット
+					_BackPicDrwPsOfstY,					//              〃
+					e.X - _picBxBackMouseDwnPt.X,	//画像水平移動量
+					e.Y - _picBxBackMouseDwnPt.Y	//画像水平移動量
+				);
 		}
 
 		/// <summary>背景画像：マウスアップ </summary>
 		///
 		private void picBxBack_MouseUp(object sender, MouseEventArgs e) {
 			_picBxBackMouseDwnFlg = false;
-#region デバッグ出力
-#if DEBUG
-			dbgShowVal.setVal(msDwnPtX: 9999, msDwnPtY: 9999);
-#endif
-#endregion
-		}
-
-		/// <summary>背景画像：マウスムーブ </summary>
-		///
-		private void picBxBack_MouseMove(object sender, MouseEventArgs e) {
-				int mvX = e.X - _picBxBackMouseDwnPt.X;
-				int mvY = e.Y - _picBxBackMouseDwnPt.Y;
-#region デバッグ出力
-#if DEBUG
-				dbgShowVal.setVal(msDwnPtX: _picBxBackMouseDwnPt.X, msDwnPtY: _picBxBackMouseDwnPt.Y,
-					msPtX: e.X, msPtY: e.Y, msMoveVX: mvX, msMoveVY: mvY
-					);
-#endif
-#endregion
-
-				if ((_picBxBackMvXBk != mvX) || (_picBxBackMvYBk != mvY)) {
-
-					if (_picBxBackMouseDwnFlg) {
-						//				//背景画像の移動テスト
-						//				backPicMoveTest(e.X - _picBxBackMouseDwnPt.X,	//画像水平移動量
-						//					e.Y - _picBxBackMouseDwnPt.Y	//画像水平移動量
-						//			);
-
-						//背景画像の移動
-
-
-						if (mvX != 0 || mvY != 0) {
-
-//高速移動テスト＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＞
-							Graphics g = Graphics.FromImage(_CanvasBack);
-
-							g.Clear(Color.Black);//一旦画像クリア
-							g.ResetTransform();//変換行列初期化
-
-mvX分をオフセットに加減しないと、
-							//ワールド変換行列を単位行列にリセット
-							g.ResetTransform();
-							//ワールド変換行列を下に10平行移動する
-							g.TranslateTransform(mvX, mvY);
-							//画像を描画
-							g.DrawImage(_LoadedBackImgObj, 0, 0);
-							//g.DrawImage(_LoadedBackImgObj, new Rectangle(0, 0, 100, 100));
-
-							//リソースを解放する
-							//_LoadedBackImgObj.Dispose();
-							g.Dispose();
-
-							//PictureBox1に表示する
-							picBxBack.Image = _CanvasBack;
-ここから
-							_picBxBackMouseMvStrtPt.X+=mvX;
-							_picBxBackMouseMvStrtPt.Y+=mvY;
-//＜＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝高速移動テスト
-
-/*							movePicture(picBxBack,							//背景画像ピクチャーボックス 
-								_CanvasBack,						//描画先カンバス
-								_LoadedBackImgObj,					//読み込んだ画像
-								_EdtTyp.Move,					//編集タイプ：画像移動
-								_BackPicDrwPsOfstX,				//画像中心表示のためのオフセット
-								_BackPicDrwPsOfstY,					//              〃
-								mvX,	//画像水平移動量
-								mvX	//画像水平移動量
-							);
-*/
-						}
-
-						_picBxBackMvXBk = mvX;
-						_picBxBackMvYBk = mvY;
-
-
-					}
-				}
-		}
-
-
-		void backPicMoveTest(int x,int y ) {
-
-//背景画像の　高速　　移動テスト
-			#region デバッグ出力
-#if DEBUG
-			dbgShowVal.setVal(offstBackX: x, offstBackY:y);
-#endif
-			#endregion
-
-			Graphics g = Graphics.FromImage(_CanvasBack);
-
-
-//ワールド変換行列を単位行列にリセット
-g.ResetTransform();
-//ワールド変換行列を下に10平行移動する
-g.TranslateTransform(0, 10);
-//画像を描画
-g.DrawImage(_LoadedBackImgObj, 0, 0);
-//g.DrawImage(_LoadedBackImgObj, new Rectangle(0, 0, 100, 100));
-
-//リソースを解放する
-//_LoadedBackImgObj.Dispose();
-g.Dispose();
-
-//PictureBox1に表示する
-picBxBack.Image = _CanvasBack;
-		}
-
-
-
-
-
-
-
-
-
-		 
+		} 
 	}
 }

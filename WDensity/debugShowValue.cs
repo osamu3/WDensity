@@ -41,47 +41,32 @@ namespace WDensity {
 		}
 		// cf:ref:数値の文字列化に際し、,（カンマ）区切りの空白右詰で表示している。
 		public void setVal(
-			int msPtX =9999,			//マウス座標X
-			int msPtY = 9999,			//マウス座標Y
-			int msDwnPtX = 9999,		//マウス押下座標X
-			int msDwnPtY = 9999,		//マウス押下座標Y
-
-
-			int forePicBxW = 9999,		//前景：幅
-			int forePicBxH = 9999,		//前景：高
-			int hrzBrForeMax = 9999,	//水平バー前景Max
-			int vrtBrForeMax = 9999,	//垂直バー前景Max
-			int loadImgForeW = 9999,	//読込画像前景：幅
-			int loadImgForeH = 9999,	//読込画像前景：高
-			int canvsForeW = 9999,		//カンバス前景：幅
-			int canvsForeH = 9999,		//カンバス前景：高
+			int forePicBxW = 0,		//前景：幅
+			int forePicBxH = 0,		//前景：高
+			int hrzBrForeMax = 0,	//水平バー前景Max
+			int vrtBrForeMax = 0,	//垂直バー前景Max
+			int loadImgForeW = 0,	//読込画像前景：幅
+			int loadImgForeH = 0,	//読込画像前景：高
+			int canvsForeW = 0,		//カンバス前景：幅
+			int canvsForeH = 0,		//カンバス前景：高
 			int hrzBrForeMoveV = 9999,	//水平移動量：前景
-			int vrtBrForeMoveV = 9999,	//垂直移動量：前景
-			int offstForeX = 9999,		//オフセットX：前景
-			int offstForeY = 9999,		//オフセットY：前景
+			int vrtBrForeMoveV = 0,	//垂直移動量：前景
+			int offstForeX = 0,		//オフセットX：前景
+			int offstForeY =0,		//オフセットY：前景
 
-			int backPicBxW = 9999,		//背景：幅
-			int backPicBxH = 9999,		//背景：高
-			int hrzBrBackMax = 9999,	//水平バー背景Max
-			int vrtBrBackMax = 9999,	//垂直バー背景Max
-			int loadImgBackW = 9999,	//読込画像背景：幅
-			int loadImgBackH = 9999,	//読込画像背景：高
-			int canvsBackW = 9999,		//カンバス背景：幅
-			int canvsBackH = 9999,		//カンバス背景：高
-			int msMoveVX = 9999,	//マウスドラッグ水平移動量：背景
-			int msMoveVY = 9999,	//マウスドラッグ垂直移動量：背景
-			int offstBackX = 9999,		//オフセットX：前景
-			int offstBackY = 9999		//オフセットY：前景
+			int backPicBxW = 0,		//背景：幅
+			int backPicBxH = 0,		//背景：高
+			int hrzBrBackMax = 0,	//水平バー背景Max
+			int vrtBrBackMax = 0,	//垂直バー背景Max
+			int loadImgBackW = 0,	//読込画像背景：幅
+			int loadImgBackH = 0,	//読込画像背景：高
+			int canvsBackW = 0,		//カンバス背景：幅
+			int canvsBackH = 0,		//カンバス背景：高
+			int hrzBrBackMoveV = 0,	//水平移動量：背景
+			int vrtBrBackMoveV = 0,	//垂直移動量：背景
+			int offstBackX =0,		//オフセットX：前景
+			int offstBackY =0		//オフセットY：前景
 		){
-			//マウス押下座標
-			if (msDwnPtX != 9999) form.lblMsDwnPtX.Text = msDwnPtX.ToString("#,##0").PadLeft(5);
-			if (msDwnPtY != 9999) form.lblMsDwnPtY.Text = msDwnPtY.ToString("#,##0").PadLeft(5);
-			if (msDwnPtX == 9999) form.lblMsDwnPtX.Text = "?";
-			if (msDwnPtY == 9999) form.lblMsDwnPtY.Text = "?";
-			//マウス座標
-			if (msPtX != 9999) form.lblMsPtX.Text = msPtX.ToString("#,##0").PadLeft(5);
-			if (msPtY != 9999) form.lblMsPtY.Text = msPtY.ToString("#,##0").PadLeft(5);
-
 			//背景
 			//ピクチャーボックスの大きさ(背景)
 			if (backPicBxW != 9999) form.lblBckPicBxW.Text = backPicBxW.ToString("#,##0").PadLeft(5);
@@ -100,8 +85,8 @@ namespace WDensity {
 			if (canvsBackH != 9999) form.lblCanvsBckH.Text = canvsBackH.ToString("#,##0").PadLeft(5);
 
 			//トラックバーの移動量(背景)
-			if (msMoveVX != 9999) form.lblMsMoveVX.Text = msMoveVX.ToString("#,##0").PadLeft(5);
-			if (msMoveVY != 9999) form.lblMsMoveVY.Text = msMoveVY.ToString("#,##0").PadLeft(5);
+			if (hrzBrBackMoveV != 9999) form.lblHrzBrBckMoveV.Text = hrzBrBackMoveV.ToString("#,##0").PadLeft(5);
+			if (vrtBrBackMoveV != 9999) form.lblVrtBrBckMoveV.Text = vrtBrBackMoveV.ToString("#,##0").PadLeft(5);
 
 			//オフセット量(背景)
 			if (offstBackX != 9999) form.lblOffstBckX.Text = offstBackX.ToString("#,##0").PadLeft(5);
